@@ -2,7 +2,7 @@ package models;
 
 import models.abstracts.Observador;
 
-public class ObervadorLupin implements Observador {
+public class ObervadorLupin implements Observador{
 
     private boolean estado;
 

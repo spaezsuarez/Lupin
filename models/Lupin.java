@@ -3,6 +3,7 @@ package models;
 public class Lupin {
     
     private Posicion posicion;
+    private Llave llave;
 
     private int velocidad;
 
@@ -22,8 +23,11 @@ public class Lupin {
         return this.posicion;
     }
 
-    public void robarLlave(Llave llave){
-        llave = null;
-         
+    public Llave getLlave(){
+        return this.llave;
+    }
+
+    public void setLlave(Llave llave){
+        this.llave = llave;    
     }
 }

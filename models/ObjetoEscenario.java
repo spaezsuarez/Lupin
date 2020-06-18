@@ -2,7 +2,7 @@ package models;
 
 public class ObjetoEscenario {
 
-    protected Posicion posicion;
+    private Posicion posicion;
 
     public void setPosicion(Posicion posicion){
         this.posicion = posicion;

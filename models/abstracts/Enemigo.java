@@ -1,8 +1,11 @@
 package models.abstracts;
 
-public abstract class Enemigo {
+import models.Posicion;
 
-    protected int velocidad;
+public class Enemigo {
+
+    private int velocidad;
+    private Posicion posicion;
 
     public void setVelocidad(int velocidad){
         this.velocidad = velocidad;
@@ -12,6 +15,17 @@ public abstract class Enemigo {
         return this.velocidad;
     }
 
-    public abstract void moverse();
+    public void setPosicion(Posicion posicion){
+        this.posicion = posicion;
+    }
+
+    public Posicion getPosicion(){
+        return this.posicion;
+    }
+
+    public void moverse(int x, int y){
+        this.posicion.mover(x, y);
+
+    }
     
 }

@@ -1,5 +1,3 @@
 package models;
 
-public class Llave extends ObjetoEscenario {
-    
-}
+public class Llave extends ObjetoEscenario {}
