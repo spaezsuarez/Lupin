@@ -6,6 +6,8 @@ public class Enemigo {
 
     private int velocidad;
     private Posicion posicion;
+    private EstadoEnemigo estado;
+
 
     public void setVelocidad(int velocidad){
         this.velocidad = velocidad;
@@ -26,6 +28,12 @@ public class Enemigo {
     public void moverse(int x, int y){
         this.posicion.mover(x, y);
 
+    }
+
+    public void setEstado(EstadoEnemigo estado){
+        this.estado = estado;
+        this.estado.setEnemigo(this);
+        this.estado.perseguirJugador();
     }
     
 }

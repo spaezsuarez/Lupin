@@ -1,9 +1,9 @@
-package controllers;
+package models.Estados;
 
-import models.abstracts.Enemigo;
 import models.abstracts.EstadoEnemigo;
+import models.abstracts.Enemigo;
 
-public class EnemigoMedio implements EstadoEnemigo {
+public class EnemigoFacil implements EstadoEnemigo {
 
     private Enemigo enemigo;
 
@@ -14,7 +14,7 @@ public class EnemigoMedio implements EstadoEnemigo {
 
     @Override
     public void perseguirJugador(){
-        this.enemigo.setVelocidad(3);
+        this.enemigo.setVelocidad(2);
     }
     
 }

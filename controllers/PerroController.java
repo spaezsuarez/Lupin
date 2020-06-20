@@ -1,9 +1,9 @@
 package controllers;
 
-import models.abstracts.Enemigo;
+import models.Perro;
 
 public class PerroController {
 
-    private Enemigo perro;
+    private Perro perro;
     
 }

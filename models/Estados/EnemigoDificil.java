@@ -1,4 +1,4 @@
-package controllers;
+package models.Estados;
 
 import models.abstracts.EstadoEnemigo;
 import models.abstracts.Enemigo;

@@ -4,7 +4,6 @@ public class Lupin {
     
     private Posicion posicion;
     private Llave llave;
-
     private int velocidad;
 
     public void setVelocidad(int velocidad){

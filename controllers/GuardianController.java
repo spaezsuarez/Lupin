@@ -1,9 +1,9 @@
 package controllers;
 
-import models.abstracts.Enemigo;
+import models.Guardian;
 
 public class GuardianController {
 
-    private Enemigo guardian;
+    private Guardian guardian;
 
 }
