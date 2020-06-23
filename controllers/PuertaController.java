@@ -12,6 +12,13 @@ public class PuertaController {
             //TODO:ELIMINAR EL OBJETO
         }
     }
-    
+
+    public Puerta getPuerta() {
+        return this.puerta;
+    }
+
+    public void setPuerta(Puerta puerta) {
+        this.puerta = puerta;
+    }
     
 }
