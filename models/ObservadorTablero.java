@@ -7,11 +7,11 @@ import models.abstracts.Enemigo;
 import models.abstracts.EstadoEnemigo;
 
 
-public class ObervadorTablero implements Observador {
+public class ObservadorTablero implements Observador {
     private int cantidadLlaves;
     private ArrayList<Enemigo> enemigos;
 
-    public ObervadorTablero(){
+    public ObservadorTablero(){
         this.enemigos = new ArrayList<>();
         this.cantidadLlaves = 0;
     }
