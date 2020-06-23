@@ -6,12 +6,12 @@ import models.Estados.*;
 import models.abstracts.Enemigo;
 import models.abstracts.EstadoEnemigo;
 
-public class ObervadorLupin implements Observador{
 
+public class ObervadorTablero implements Observador {
     private int cantidadLlaves;
     private ArrayList<Enemigo> enemigos;
 
-    public ObervadorLupin(){
+    public ObervadorTablero(){
         this.enemigos = new ArrayList<>();
         this.cantidadLlaves = 0;
     }
@@ -61,6 +61,5 @@ public class ObervadorLupin implements Observador{
     public void actualizar(){
         this.notificarEnemigos();
     }
-    
     
 }
