@@ -2,17 +2,18 @@ package controllers;
 
 import models.Puerta;
 import models.Llave;
+import models.Posicion;
 
 public class PuertaController {
 
     private Puerta puerta;
 
-    public PuertaController() {
-        
+    public PuertaController(Posicion posicion, String password) {
+        puerta = new Puerta(posicion, password);
     }
 
     public void abrir(Llave llave){
-        if(llave != null){
+        if((llave != null) && (llave.getPassword().equals(this.puerta.getPassword()))){
             //TODO:ELIMINAR EL OBJETO
         }
     }

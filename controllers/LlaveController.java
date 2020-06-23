@@ -1,13 +1,14 @@
 package controllers;
 
 import models.Llave;
+import models.Posicion;
 
 public class LlaveController {
 
     private Llave llave;
 
-    public LlaveController() {
-        
+    public LlaveController(Posicion posicion, String password) {
+        llave = new Llave(posicion, password);
     }
 
     public Llave getLlave(){
