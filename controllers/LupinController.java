@@ -26,10 +26,6 @@ public class LupinController {
         return this.movimiento;
     }
 
-    public void setMovimiento(LupinMovement movimiento) {
-        this.movimiento = movimiento;
-    }
-
 }
 
 class LupinMovement implements KeyListener {
