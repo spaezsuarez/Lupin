@@ -11,13 +11,13 @@ public class ObservadorTablero implements Observador {
     private int cantidadLlaves;
     private ArrayList<Enemigo> enemigos;
 
-    public ObservadorTablero(){
-        this.enemigos = new ArrayList<>();
+    public ObservadorTablero(ArrayList<Enemigo>enemigosTablero){
+        this.enemigos = enemigosTablero;
         this.cantidadLlaves = 0;
     }
 
-    public void setEnemigos(Enemigo enemigo){
-        this.enemigos.add(enemigo);
+    public void setEnemigos(ArrayList<Enemigo>enemigosTablero){
+        this.enemigos = enemigosTablero;
     }
 
     public ArrayList<Enemigo> getEnemigos() {
@@ -30,7 +30,7 @@ public class ObservadorTablero implements Observador {
         }
     }
 
-    public void setNumeroLlaves(int cantidad){
+    public void setCantidadLlaves(int cantidad){
         this.cantidadLlaves = cantidad;
     }
 
