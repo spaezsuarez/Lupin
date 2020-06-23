@@ -6,6 +6,10 @@ public class PerroController {
 
     private Perro perro;
 
+    public PerroController() {
+        
+    }
+
     public Perro getPerro() {
         return this.perro;
     }

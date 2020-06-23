@@ -6,6 +6,10 @@ public class GuardianController {
 
     private Guardian guardian;
 
+    public GuardianController() {
+        
+    }
+
     public Guardian getGuardian() {
         return this.guardian;
     }
