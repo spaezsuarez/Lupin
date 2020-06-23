@@ -7,6 +7,10 @@ public class PuertaController {
 
     private Puerta puerta;
 
+    public PuertaController() {
+        
+    }
+
     public void abrir(Llave llave){
         if(llave != null){
             //TODO:ELIMINAR EL OBJETO

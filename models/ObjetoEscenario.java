@@ -5,6 +5,11 @@ public class ObjetoEscenario {
     private Posicion posicion;
     private String password;
 
+    public ObjetoEscenario(Posicion posicion, String password) {
+        this.posicion = posicion;
+        this.password = password;
+    }
+
     public void setPosicion(Posicion posicion){
         this.posicion = posicion;
     }
