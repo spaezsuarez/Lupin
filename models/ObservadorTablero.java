@@ -3,29 +3,28 @@ package models;
 import models.abstracts.Observador;
 import java.util.ArrayList;
 import models.Estados.*;
-import models.abstracts.Enemigo;
 import models.abstracts.EstadoEnemigo;
 
 
 public class ObservadorTablero implements Observador {
     private int cantidadLlaves;
-    private ArrayList<Enemigo> enemigos;
+    private ArrayList<Perro> enemigos;
 
-    public ObservadorTablero(ArrayList<Enemigo>enemigosTablero){
+    public ObservadorTablero(ArrayList<Perro>enemigosTablero){
         this.enemigos = enemigosTablero;
         this.cantidadLlaves = 0;
     }
 
-    public void setEnemigos(ArrayList<Enemigo>enemigosTablero){
-        this.enemigos = enemigosTablero;
+    public void setEnemigos(Perro enemigo){
+        this.enemigos.add(enemigo);
     }
 
-    public ArrayList<Enemigo> getEnemigos() {
+    public ArrayList<Perro> getEnemigos() {
         return this.enemigos;
     }
 
     public void setEstadoEnemigos(EstadoEnemigo estado){
-        for(Enemigo e: this.enemigos){
+        for(Perro e: this.enemigos){
             e.setEstado(estado);
         }
     }
@@ -58,7 +57,7 @@ public class ObservadorTablero implements Observador {
     }
 
     @Override
-    public void actualizar(){
+    public void update(){
         this.notificarEnemigos();
     }
     
