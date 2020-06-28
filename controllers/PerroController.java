@@ -9,5 +9,5 @@ public class PerroController extends EnemigoController {
     public PerroController(Perro perro, Lupin lupin) {
         super(perro, lupin);
     }
-    
+
 }
