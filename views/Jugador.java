@@ -16,19 +16,11 @@ public class Jugador extends JLabel{
         this.controller = new LupinController(new Lupin());
         this.setSize(30,30);
         this.setText("lUPIN");
-        //ImageIcon forma = new ImageIcon(getClass().getResource("/views/sources/player.jpg"));
-        //ImageIcon imagen = new ImageIcon(forma.getImage().getScaledInstance(this.getWidth(),this.getHeight(),Image.SCALE_DEFAULT));
-        //this.setIcon(imagen);
     }
 
     public LupinController getPlayerController(){
         return this.controller;
     }
-
-    
-
-
-    
     
     
 }
