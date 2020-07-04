@@ -1,10 +1,8 @@
 package lupin.models;
-
 import lupin.models.abstracts.Observador;
 import lupin.views.PerroGrafico;
 import lupin.models.Estados.*;
 import lupin.models.abstracts.EstadoEnemigo;
-
 
 public class ObservadorTablero implements Observador {
     private int cantidadLlaves;
@@ -31,7 +29,7 @@ public class ObservadorTablero implements Observador {
         }
     }
 
-    public void setNumeroLlaves(int cantidad){
+    public void setCantidadLlaves(int cantidad){
         this.cantidadLlaves = cantidad;
     }
 
@@ -59,7 +57,7 @@ public class ObservadorTablero implements Observador {
     }
 
     @Override
-    public void actualizar(){
+    public void update(){
         this.notificarEnemigos();
     }
     

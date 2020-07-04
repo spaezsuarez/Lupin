@@ -49,6 +49,9 @@ class LupinMovement implements KeyListener {
         this.jugador = jugador;
     }
 
+
+    
+
     public Jugador getJugador(){
         return this.jugador;
     }
@@ -67,12 +70,14 @@ class LupinMovement implements KeyListener {
         double x = this.controller.getLupin().getPosicion().getX();
         double y = this.controller.getLupin().getPosicion().getY();
         switch (key.getKeyCode()) {
+
             case KeyEvent.VK_UP:
                 
                 this.controller.getLupin().getPosicion().mover(x, y - velocidad);
                 break;
             
             case KeyEvent.VK_DOWN:
+
 
                 this.controller.getLupin().getPosicion().mover(x, y + velocidad);
                 break;
@@ -92,8 +97,10 @@ class LupinMovement implements KeyListener {
         this.tablero.colisiones();
     }
 
+    @Override
     public void keyTyped(KeyEvent key) {}
 
+    @Override
     public void keyReleased(KeyEvent key) {}
 
 }

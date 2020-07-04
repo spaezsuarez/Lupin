@@ -1,4 +1,7 @@
 package lupin.views;
+import lupin.models.Lupin;
+//import java.awt.Image;
+//import javax.swing.ImageIcon;
 
 import lupin.controllers.LupinController;
 import lupin.views.abstracts.*;
@@ -10,6 +13,8 @@ public class Jugador extends Personaje{
     private static final long serialVersionUID = 1L;
     private LupinController controller;
 
+
+    
 
     public Jugador(LupinController lupin){
         this.setSize(40,30);
@@ -33,9 +38,11 @@ public class Jugador extends Personaje{
 
     }
 
+
     public Rectangle2D getArea(){
         return new Rectangle2D.Double(this.getX(),this.getY(),40,30);
     }
+
     
     
 }

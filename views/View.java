@@ -1,7 +1,9 @@
 package lupin.views;
 
-import java.awt.Dimension;
+
 import javax.swing.JFrame;
+import java.awt.Dimension;
+
 
 public class View extends JFrame {
 

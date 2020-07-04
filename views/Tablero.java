@@ -1,4 +1,6 @@
+
 package lupin.views;
+
 
 import javax.swing.JPanel;
 
@@ -31,6 +33,7 @@ public class Tablero extends JPanel implements SujetoObservable{
         this.setLayout(null);
         this.setBackground(Color.GRAY);
         
+
         cantidadLlaves = 3;
         observer = new ObservadorTablero();
         jugador = new Jugador(lupinController);
@@ -67,6 +70,7 @@ public class Tablero extends JPanel implements SujetoObservable{
 
     public Jugador getJugador(){
         return this.jugador;
+
     }
 
     public void drawMap(Graphics2D lapiz) {
@@ -87,6 +91,10 @@ public class Tablero extends JPanel implements SujetoObservable{
     }
 
     public void colisiones() {
+
+        
+
+        Rectangle2D areajugador = new Rectangle2D.Double(jugador.getX(),jugador.getY(),40,30);
 
         Rectangle2D paredInferior = new Rectangle2D.Double(0,300,100,10);
         Rectangle2D paredInferiorDos = new Rectangle2D.Double(150,300,390,10); 
@@ -131,7 +139,7 @@ public class Tablero extends JPanel implements SujetoObservable{
 
     @Override
     public void notificar() {
-        this.observer.setNumeroLlaves(this.cantidadLlaves);
+        this.observer.setCantidadLlaves(this.cantidadLlaves);
         this.observer.notificarEnemigos();
         this.perros = observer.getEnemigos();
         
