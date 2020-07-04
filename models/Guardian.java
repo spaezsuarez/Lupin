@@ -1,6 +1,6 @@
 package lupin.models;
 
-import models.abstracts.*;
+import lupin.models.abstracts.*;
 
 public class Guardian extends Enemigo {
 
