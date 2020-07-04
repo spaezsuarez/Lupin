@@ -26,7 +26,7 @@ public class ObservadorTablero implements Observador {
 
     public void setEstadoEnemigos(EstadoEnemigo estado){
         for(PerroGrafico e: this.enemigos){
-            System.out.println("El estado del enemigo es: " + estado);
+            System.out.println("la velocidad del enemigo es: " + e.getPerroController().getEnemigo().getVelocidad());
             e.getPerroController().getEnemigo().setEstado(estado);
         }
     }
@@ -41,7 +41,7 @@ public class ObservadorTablero implements Observador {
 
     public void notificarEnemigos(){
 
-        //Recordar que el tablero va a estar diciendole al observadorLupin cuando una llave se vuelve nula
+        //Recordar que el tablero va a estar diciendole al observadorLupin cuando una llave no
         //Esto quiere decir que la tomo el jugador y va a anotificar a los enemigos
         switch(this.getCantidadLlaves()){
             case 3:

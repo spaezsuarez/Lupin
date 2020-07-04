@@ -2,6 +2,7 @@ package lupin.views;
 
 import lupin.controllers.LupinController;
 import lupin.views.abstracts.*;
+import java.awt.geom.*;
 
 
 public class Jugador extends Personaje{
@@ -30,6 +31,10 @@ public class Jugador extends Personaje{
         this.controller.getLupin().getPosicion().mover(xi+x,yi+y);
         this.setLocation(this.controller.getLupin().getPosicion().getX(),this.controller.getLupin().getPosicion().getY());
 
+    }
+
+    public Rectangle2D getArea(){
+        return new Rectangle2D.Double(this.getX(),this.getY(),40,30);
     }
     
     
