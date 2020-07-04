@@ -1,7 +1,6 @@
 
 package lupin.views;
 
-
 import javax.swing.JPanel;
 
 import lupin.controllers.LlaveController;
@@ -16,6 +15,7 @@ import java.awt.Graphics2D;
 import java.awt.BasicStroke;
 import lupin.models.abstracts.SujetoObservable;
 import lupin.models.ObservadorTablero;
+import java.util.ArrayList;
 
 
 public class Tablero extends JPanel implements SujetoObservable{
@@ -26,7 +26,7 @@ public class Tablero extends JPanel implements SujetoObservable{
     private ObservadorTablero observer;
     private int cantidadLlaves;
     private PerroGrafico[] perros;
-    private LlaveGrafica[] llaves;
+    private ArrayList<LlaveGrafica> llaves;
 
     public Tablero(PerroController[] perrosControllers,LlaveController[] llavesJuego,LupinController lupinController) {
 
@@ -44,11 +44,10 @@ public class Tablero extends JPanel implements SujetoObservable{
             new PerroGrafico(perrosControllers[2], jugador)
         };
 
-        this.llaves = new LlaveGrafica[]{
-            new LlaveGrafica(llavesJuego[0]),
-            new LlaveGrafica(llavesJuego[1]),
-            new LlaveGrafica(llavesJuego[2]),
-        };
+        llaves = new ArrayList<>();
+        llaves.add(new LlaveGrafica(llavesJuego[0]));
+        llaves.add(new LlaveGrafica(llavesJuego[1]));
+        llaves.add(new LlaveGrafica(llavesJuego[2]));
 
         observer.setEnemigos(this.perros);
         this.addKeyListener(jugador.getPlayerController().getMovimiento());
@@ -57,9 +56,9 @@ public class Tablero extends JPanel implements SujetoObservable{
         this.add(this.perros[0]);
         this.add(this.perros[1]);
         this.add(this.perros[2]);
-        this.add(this.llaves[0]);
-        this.add(this.llaves[1]);
-        this.add(this.llaves[2]);
+        this.add(this.llaves.get(0));
+        this.add(this.llaves.get(1));
+        this.add(this.llaves.get(2));
         this.setFocusable(true);
         
     }
@@ -136,6 +135,11 @@ public class Tablero extends JPanel implements SujetoObservable{
                 notificar();
                 cantidadLlaves -= 1;
                 this.remove(l);
+                try{
+                    this.llaves.remove(l);
+                }catch(Exception e){}
+                
+                
             }
         }
     }
