@@ -1,7 +1,7 @@
-package views;
+package lupin.views;
 
-import controllers.PerroController;
-import views.abstracts.Personaje;
+import lupin.controllers.PerroController;
+import lupin.views.abstracts.Personaje;
 
 public class PerroGrafico extends Personaje {
 

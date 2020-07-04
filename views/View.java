@@ -1,4 +1,4 @@
-package views;
+package lupin.views;
 
 import javax.swing.JFrame;
 import java.awt.Dimension;

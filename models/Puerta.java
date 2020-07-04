@@ -1,4 +1,4 @@
-package models;
+package lupin.models;
 
 public class Puerta extends ObjetoEscenario {
     public Puerta(Posicion posicion, String password) {

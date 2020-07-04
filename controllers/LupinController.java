@@ -1,8 +1,8 @@
-package controllers;
+package lupin.controllers;
 
-import models.Lupin;
-import views.Jugador;
-import views.Tablero;
+import lupin.models.Lupin;
+import lupin.views.Jugador;
+import lupin.views.Tablero;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 

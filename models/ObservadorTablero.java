@@ -1,9 +1,9 @@
-package models;
+package lupin.models;
 
-import models.abstracts.Observador;
-import views.PerroGrafico;
-import models.Estados.*;
-import models.abstracts.EstadoEnemigo;
+import lupin.models.abstracts.Observador;
+import lupin.views.PerroGrafico;
+import lupin.models.Estados.*;
+import lupin.models.abstracts.EstadoEnemigo;
 
 
 public class ObservadorTablero implements Observador {

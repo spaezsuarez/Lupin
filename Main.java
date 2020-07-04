@@ -1,4 +1,6 @@
-import controllers.Controller;
+package lupin;
+
+import lupin.controllers.Controller;
 
 public class Main{
 

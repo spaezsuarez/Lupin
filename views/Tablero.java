@@ -1,9 +1,9 @@
-package views;
+package lupin.views;
 
 import javax.swing.JPanel;
 
-import controllers.LupinController;
-import controllers.PerroController;
+import lupin.controllers.LupinController;
+import lupin.controllers.PerroController;
 
 //import java.awt.Rectangle;
 import java.awt.geom.*;
@@ -11,8 +11,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.BasicStroke;
-import models.abstracts.SujetoObservable;
-import models.ObservadorTablero;
+import lupin.models.abstracts.SujetoObservable;
+import lupin.models.ObservadorTablero;
 
 
 public class Tablero extends JPanel implements SujetoObservable{

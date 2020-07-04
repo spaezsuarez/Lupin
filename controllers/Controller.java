@@ -1,9 +1,9 @@
-package controllers;
+package lupin.controllers;
 
-import models.Lupin;
-import models.Perro;
-import views.Tablero;
-import views.View;
+import lupin.models.Lupin;
+import lupin.models.Perro;
+import lupin.views.Tablero;
+import lupin.views.View;
 
 public class Controller {
 

@@ -1,4 +1,4 @@
-package models;
+package lupin.models;
 
 public class Lupin {
     

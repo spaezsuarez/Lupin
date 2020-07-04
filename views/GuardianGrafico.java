@@ -1,6 +1,6 @@
-package views;
+package lupin.views;
 
-import views.abstracts.Personaje;
+import lupin.views.abstracts.Personaje;
 
 public class GuardianGrafico extends Personaje {
 

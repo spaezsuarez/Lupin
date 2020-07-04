@@ -1,8 +1,8 @@
-package controllers.abstracts;
+package lupin.controllers.abstracts;
 
-import models.Lupin;
-import models.Posicion;
-import models.abstracts.Enemigo;
+import lupin.models.Lupin;
+import lupin.models.Posicion;
+import lupin.models.abstracts.Enemigo;
 
 public abstract class EnemigoController {
 

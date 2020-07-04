@@ -1,4 +1,4 @@
-package controllers.threads;
+package lupin.controllers.threads;
 
 public class EnemigosThread extends Thread {
 

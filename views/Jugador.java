@@ -1,7 +1,7 @@
-package views;
+package lupin.views;
 
-import controllers.LupinController;
-import views.abstracts.*;
+import lupin.controllers.LupinController;
+import lupin.views.abstracts.*;
 
 
 public class Jugador extends Personaje{

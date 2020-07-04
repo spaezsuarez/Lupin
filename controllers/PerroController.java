@@ -1,8 +1,8 @@
-package controllers;
+package lupin.controllers;
 
-import models.Lupin;
-import models.abstracts.Enemigo;
-import controllers.abstracts.EnemigoController;
+import lupin.models.Lupin;
+import lupin.models.abstracts.Enemigo;
+import lupin.controllers.abstracts.EnemigoController;
 
 public class PerroController extends EnemigoController {
 

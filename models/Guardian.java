@@ -1,4 +1,4 @@
-package models;
+package lupin.models;
 
 import models.abstracts.*;
 
