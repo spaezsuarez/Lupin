@@ -1,17 +1,13 @@
 package controllers;
 
-import models.Guardian;
+import models.Lupin;
+import models.Perro;
+import controllers.abstracts.EnemigoController;
 
-public class GuardianController {
+public class GuardianController extends EnemigoController {
 
-    private Guardian guardian;
-
-    public Guardian getGuardian() {
-        return this.guardian;
+    public GuardianController(Perro guardian, Lupin lupin) {
+        super(guardian, lupin);
     }
-
-    public void setGuardian(Guardian guardian) {
-        this.guardian = guardian;
-    }
-
+    
 }
