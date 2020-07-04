@@ -1,6 +1,8 @@
 package views;
 
 import javax.swing.JFrame;
+import controllers.LupinController;
+import controllers.PerroController;
 import java.awt.Dimension;
 
 public class View extends JFrame {
@@ -9,8 +11,8 @@ public class View extends JFrame {
     private Tablero tablero;
     private int alto,ancho;
 
-    public View(){
-        this.tablero = new Tablero();
+    public View(PerroController perroController, LupinController lupinController){
+        this.tablero = new Tablero(perroController,lupinController);
         this.ancho = 740;
         this.alto = 500;
 

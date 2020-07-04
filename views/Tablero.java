@@ -1,6 +1,10 @@
 package views;
 
 import javax.swing.JPanel;
+
+import controllers.LupinController;
+import controllers.PerroController;
+
 //import java.awt.Rectangle;
 import java.awt.geom.*;
 import java.awt.Color;
@@ -18,35 +22,25 @@ public class Tablero extends JPanel implements SujetoObservable{
     private static final long serialVersionUID = 1L;
 
     private Jugador jugador;
-    private EnemigoGrafico perroUno,perroDos,perroTres;
     private ObservadorTablero observer;
     private int cantidadLlaves = 3;
     private ArrayList<Perro> perros;
 
-    public Tablero() {
+    public Tablero(PerroController perroController, LupinController lupinController) {
 
         this.setLayout(null);
         this.setBackground(Color.GRAY);
 
-        jugador = new Jugador(this);
-        perroUno = new EnemigoGrafico(jugador);
-        perroDos = new EnemigoGrafico(jugador);
-        perroTres = new EnemigoGrafico(jugador);
+        jugador = new Jugador(lupinController);
         
         observer = new ObservadorTablero();
         perros = new ArrayList<Perro>();
 
-        perros.add(perroUno.getPerroController().getPerro());
-        perros.add(perroDos.getPerroController().getPerro());
-        perros.add(perroTres.getPerroController().getPerro());
 
         observer.setEnemigos(perros);
         this.addKeyListener(jugador.getPlayerController().getMovimiento());
 
         this.add(this.jugador);
-        this.add(this.perroUno);
-        this.add(this.perroDos);
-        this.add(this.perroTres);
         this.setFocusable(true);
         
     }
@@ -77,10 +71,6 @@ public class Tablero extends JPanel implements SujetoObservable{
 
         if(areajugador.intersectsLine(540, 0, 540, 500)){
             this.jugador.mover(-10, 0);
-            if(cantidadLlaves > 0){
-                this.cantidadLlaves -= 1;
-                this.notificar();
-            }
         }
 
         if(this.jugador.getX() > this.getBounds().getMaxX()){

@@ -11,7 +11,8 @@ public class PerroController extends EnemigoController {
         super(perro, lupin);
     }
 
-    public Perro getPerro(){
+    @Override
+    public Perro getEnemigo(){
         return (Perro)this.getEnemigo();
     }
 

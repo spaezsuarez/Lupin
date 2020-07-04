@@ -1,20 +1,19 @@
 package views;
 
 import controllers.LupinController;
-import models.Lupin;
-import javax.swing.JLabel;
+import views.abstracts.*;
 
 
-public class Jugador extends JLabel{
+public class Jugador extends Personaje{
 
     private static final long serialVersionUID = 1L;
     private LupinController controller;
 
 
-    public Jugador(Tablero tablero){
+    public Jugador(LupinController lupin){
         this.setSize(40,30);
         this.setText("Lupin");
-        this.controller = new LupinController(new Lupin(1,1),this,tablero);
+        this.controller = lupin;
     }
 
     public LupinController getPlayerController(){
