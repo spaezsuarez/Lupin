@@ -26,7 +26,7 @@ public class PerroGrafico extends Personaje {
 
     @Override
     public void mover(int x, int y) {
-        // TODO Auto-generated method stub
+        this.enemigo.mover(x, y);
 
     }
     

@@ -12,9 +12,9 @@ public class LupinController {
     private LupinMovement movimiento;
     
 
-    public LupinController(Lupin lupin,Jugador jugador, Tablero tablero) {
+    public LupinController(Lupin lupin) {
         this.lupin = lupin;
-        this.movimiento = new LupinMovement(this,jugador,tablero);
+        this.movimiento = new LupinMovement(this);
     }
 
     public Lupin getLupin() {
@@ -41,10 +41,25 @@ class LupinMovement implements KeyListener {
     private Tablero tablero;
     private Jugador jugador;
 
-    public LupinMovement(LupinController controller,Jugador jugador,Tablero tablero) {
+    public LupinMovement(LupinController controller) {
         this.controller = controller;
-        this.tablero = tablero;
+    }
+
+    public void setJugador(Jugador jugador){
         this.jugador = jugador;
+    }
+
+    public Jugador getJugador(){
+        return this.jugador;
+    }
+
+    public void setTablero(Tablero tablero){
+        this.tablero = tablero;
+        this.jugador = this.tablero.getJugador();
+    }
+
+    public Tablero getTablero(){
+        return this.tablero;
     }
 
     public void keyPressed(KeyEvent key) {

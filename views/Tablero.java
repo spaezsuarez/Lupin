@@ -13,9 +13,7 @@ import java.awt.Graphics2D;
 import java.awt.BasicStroke;
 import models.abstracts.SujetoObservable;
 import models.ObservadorTablero;
-import models.Perro;
 
-import java.util.ArrayList;
 
 public class Tablero extends JPanel implements SujetoObservable{
 
@@ -23,26 +21,38 @@ public class Tablero extends JPanel implements SujetoObservable{
 
     private Jugador jugador;
     private ObservadorTablero observer;
-    private int cantidadLlaves = 3;
-    private ArrayList<Perro> perros;
+    private int cantidadLlaves;
+    private PerroGrafico[] perros;
 
-    public Tablero(PerroController perroController, LupinController lupinController) {
+    public Tablero(PerroController[] perrosControllers,LupinController lupinController) {
 
         this.setLayout(null);
         this.setBackground(Color.GRAY);
-
+        
+        cantidadLlaves = 3;
+        observer = new ObservadorTablero();
         jugador = new Jugador(lupinController);
         
-        observer = new ObservadorTablero();
-        perros = new ArrayList<Perro>();
+        this.perros = new PerroGrafico[]{
+            new PerroGrafico(perrosControllers[0], jugador),
+            new PerroGrafico(perrosControllers[1], jugador),
+            new PerroGrafico(perrosControllers[2], jugador)
+        };
 
-
-        observer.setEnemigos(perros);
+        observer.setEnemigos(this.perros);
         this.addKeyListener(jugador.getPlayerController().getMovimiento());
-
+        
         this.add(this.jugador);
         this.setFocusable(true);
         
+    }
+
+    public void setJugador(Jugador jugador){
+        this.jugador = jugador;
+    }
+
+    public Jugador getJugador(){
+        return this.jugador;
     }
 
     public void drawMap(Graphics2D lapiz) {
@@ -67,6 +77,9 @@ public class Tablero extends JPanel implements SujetoObservable{
 
         if(areajugador.intersectsLine(0, 300, 540, 300)){
             this.jugador.mover(0,-10);
+            //Logica de colision con una llave
+            /*notificar();
+            cantidadLlaves--;*/ 
         }
 
         if(areajugador.intersectsLine(540, 0, 540, 500)){
@@ -95,7 +108,8 @@ public class Tablero extends JPanel implements SujetoObservable{
     public void notificar() {
         this.observer.setNumeroLlaves(this.cantidadLlaves);
         this.observer.notificarEnemigos();
-        this.perros =  observer.getEnemigos();
+        this.perros = observer.getEnemigos();
+        
     }
 
 

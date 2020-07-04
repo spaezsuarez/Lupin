@@ -1,37 +1,33 @@
 package models;
 
 import models.abstracts.Observador;
-import java.util.ArrayList;
+import views.PerroGrafico;
 import models.Estados.*;
-import models.abstracts.Enemigo;
 import models.abstracts.EstadoEnemigo;
 
 
 public class ObservadorTablero implements Observador {
     private int cantidadLlaves;
-    private ArrayList<Perro> enemigos;
+    private PerroGrafico[] enemigos;
 
     public ObservadorTablero(){
-        this.enemigos = new ArrayList<Perro>();
+        this.enemigos = new PerroGrafico[3];
         this.cantidadLlaves = 0;
     }
 
-    public void setEnemigos(ArrayList<Perro> enemigos){
+    public void setEnemigos(PerroGrafico[] enemigos){
         this.enemigos = enemigos;
     }
 
-    public void setEnemigo(Perro perro){
-        this.enemigos.add(perro);
-    }
-
-    public ArrayList<Perro> getEnemigos() {
+    
+    public PerroGrafico[] getEnemigos() {
         return this.enemigos;
     }
 
     public void setEstadoEnemigos(EstadoEnemigo estado){
-        for(Enemigo e: this.enemigos){
+        for(PerroGrafico e: this.enemigos){
             System.out.println("El estado del enemigo es: " + estado);
-            e.setEstado(estado);
+            e.getPerroController().getEnemigo().setEstado(estado);
         }
     }
 
@@ -48,13 +44,13 @@ public class ObservadorTablero implements Observador {
         //Recordar que el tablero va a estar diciendole al observadorLupin cuando una llave se vuelve nula
         //Esto quiere decir que la tomo el jugador y va a anotificar a los enemigos
         switch(this.getCantidadLlaves()){
-            case 1:
+            case 3:
                 this.setEstadoEnemigos(new EnemigoFacil());
                 break;
             case 2:
                 this.setEstadoEnemigos(new EnemigoMedio());
                 break;
-            case 3:
+            case 1:
                 this.setEstadoEnemigos(new EnemigoDificil());
                 break;
             }
