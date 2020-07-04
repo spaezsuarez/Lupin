@@ -1,7 +1,7 @@
 package lupin.views;
 
-import javax.swing.JFrame;
 import java.awt.Dimension;
+import javax.swing.JFrame;
 
 public class View extends JFrame {
 
@@ -10,9 +10,9 @@ public class View extends JFrame {
     private int alto,ancho;
 
     public View(Tablero tablero){
+        this.tablero = tablero;
         this.ancho = 740;
         this.alto = 500;
-        this.tablero = tablero;
 
     }
 
