@@ -1,4 +1,4 @@
-package views;
+package lupin.views;
 
 import java.awt.Graphics;
 import java.awt.Image;
