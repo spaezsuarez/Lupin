@@ -10,6 +10,7 @@ public class Enemigo {
 
     public Enemigo(int x,int y){
         this.posicion = new Posicion(x, y);
+        this.velocidad = 1;
     }
 
     public void setVelocidad(int velocidad){

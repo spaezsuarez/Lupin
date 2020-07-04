@@ -1,34 +1,33 @@
 package lupin.controllers;
 
-import lupin.models.Lupin;
-import lupin.models.Perro;
+import lupin.controllers.threads.EnemigosThread;
+import lupin.controllers.threads.LupinThread;
 import lupin.views.Tablero;
 import lupin.views.View;
 
 public class Controller {
 
     private View ventana;
-    private PerroController[] perrosControllers;
-    private LupinController lupinController;
+    private LupinThread hiloLupin;
+    private EnemigosThread hiloEnemigos;
 
     public Controller() {
-        lupinController = new LupinController(new Lupin(1,1));
-
-        perrosControllers = new PerroController[]{
-            new PerroController(new Perro(100,200), lupinController.getLupin()),
-            new PerroController(new Perro(200,300), lupinController.getLupin()),
-            new PerroController(new Perro(300,200), lupinController.getLupin())
-        };
-
-        Tablero tablero = new Tablero(perrosControllers,lupinController);
-        lupinController.getMovimiento().setTablero(tablero);
-
+        hiloLupin = new LupinThread();
+        hiloEnemigos = new EnemigosThread(hiloLupin.getLupinController().getLupin());
+        Tablero tablero = new Tablero(hiloEnemigos.getPerrosControllers(),hiloLupin.getLupinController());
+        hiloLupin.getLupinController().getMovimiento().setTablero(tablero);
         ventana = new View(tablero);
-        
     }
 
     public void start(){
         this.ventana.start();
+        hiloLupin.start();
+        try {
+            Thread.sleep(1000);
+        } catch(InterruptedException e) {
+            System.out.println("Error en la matrix");
+        }
+        hiloEnemigos.start();
     }
     
 }
