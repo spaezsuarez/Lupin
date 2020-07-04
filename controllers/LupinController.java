@@ -64,8 +64,8 @@ class LupinMovement implements KeyListener {
 
     public void keyPressed(KeyEvent key) {
         int velocidad = this.controller.getLupin().getVelocidad();
-        int x = this.controller.getLupin().getPosicion().getX();
-        int y = this.controller.getLupin().getPosicion().getY();
+        double x = this.controller.getLupin().getPosicion().getX();
+        double y = this.controller.getLupin().getPosicion().getY();
         switch (key.getKeyCode()) {
             case KeyEvent.VK_UP:
                 

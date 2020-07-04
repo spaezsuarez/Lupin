@@ -8,7 +8,7 @@ public class LlaveGrafica extends JLabel {
 
     private static final long serialVersionUID = 1L;
     private LlaveController llave;
-    private final int x,y;
+    private final double x,y;
 
     public LlaveGrafica(LlaveController llave){
 
@@ -18,7 +18,7 @@ public class LlaveGrafica extends JLabel {
         this.x = this.llave.getLlave().getPosicion().getX();
         this.y = this.llave.getLlave().getPosicion().getY();
 
-        this.setLocation(x,y);
+        this.setLocation((int)x, (int)y);
 
     }
 

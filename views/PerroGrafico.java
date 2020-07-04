@@ -12,7 +12,7 @@ public class PerroGrafico extends Personaje {
         this.setSize(60, 30);
         this.setText("Perro");
         this.enemigo = enemigo;
-        this.setLocation(this.enemigo.getEnemigo().getPosicion().getX(), this.enemigo.getEnemigo().getPosicion().getY());
+        this.setLocation((int)this.enemigo.getEnemigo().getPosicion().getX(), (int)this.enemigo.getEnemigo().getPosicion().getY());
     }
 
     public PerroController getPerroController(){
@@ -22,6 +22,7 @@ public class PerroGrafico extends Personaje {
     @Override
     public void mover() {
         this.enemigo.mover();
+        this.setLocation((int)this.enemigo.getEnemigo().getPosicion().getX(), (int)this.enemigo.getEnemigo().getPosicion().getY());
     }
 
     @Override

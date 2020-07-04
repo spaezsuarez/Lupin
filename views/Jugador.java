@@ -22,14 +22,14 @@ public class Jugador extends Personaje{
     }
 
     public void mover(){
-        this.setLocation(this.controller.getLupin().getPosicion().getX(),this.controller.getLupin().getPosicion().getY());
+        this.setLocation((int)this.controller.getLupin().getPosicion().getX(), (int)this.controller.getLupin().getPosicion().getY());
     }
 
     public void mover(int x, int y){
-        int xi = controller.getLupin().getPosicion().getX();
-        int yi = controller.getLupin().getPosicion().getY();
+        double xi = controller.getLupin().getPosicion().getX();
+        double yi = controller.getLupin().getPosicion().getY();
         this.controller.getLupin().getPosicion().mover(xi+x,yi+y);
-        this.setLocation(this.controller.getLupin().getPosicion().getX(),this.controller.getLupin().getPosicion().getY());
+        this.setLocation((int)this.controller.getLupin().getPosicion().getX(), (int)this.controller.getLupin().getPosicion().getY());
 
     }
 
