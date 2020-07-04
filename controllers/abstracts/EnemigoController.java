@@ -19,6 +19,7 @@ public abstract class EnemigoController {
         posicion.mover(this.lupin.getPosicion().getX() - this.enemigo.getPosicion().getX(), this.lupin.getPosicion().getY() - this.enemigo.getPosicion().getY());
         double magnitud = Math.sqrt(Math.pow(posicion.getX(), 2) + Math.pow(posicion.getY(), 2));
         posicion.mover((posicion.getX() / magnitud), (posicion.getY() / magnitud));
+        posicion.mover(enemigo.getVelocidad() * posicion.getX(), enemigo.getVelocidad() * posicion.getY());
         this.enemigo.moverse(posicion.getX(), posicion.getY());
     }
 

@@ -15,8 +15,8 @@ public class EnemigosThread extends Thread {
     public EnemigosThread(Lupin lupin) {
         perrosControllers = new PerroController[] {
             new PerroController(new Perro(100,200, 1), lupin),
-            new PerroController(new Perro(200,300, 1), lupin),
-            new PerroController(new Perro(300,200, 1), lupin)
+            new PerroController(new Perro(200,300, 2), lupin),
+            new PerroController(new Perro(300,200, 3), lupin)
         };
 
         guardianController = new GuardianController(new Guardian(400, 300, 1), lupin);
@@ -49,10 +49,11 @@ public class EnemigosThread extends Thread {
         do {
             for(PerroController perroController : perrosControllers) {
                 perroController.mover();
+                System.out.println("Velocidad: " + perroController.getEnemigo().getVelocidad());
             }
             guardianController.mover();
             try {
-                Thread.sleep(10);
+                Thread.sleep(100);
             } catch(InterruptedException e) {
                 System.out.println("Error en la Matrix");
             }

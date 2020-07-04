@@ -15,7 +15,7 @@ public class EnemigoDificil implements EstadoEnemigo {
 
     @Override
     public void perseguirJugador(){
-        this.enemigo.setVelocidad(5);
+        this.enemigo.setVelocidad(this.enemigo.getVelocidad() + 5);
     }
     
 }

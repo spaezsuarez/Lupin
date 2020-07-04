@@ -30,7 +30,7 @@ public class Enemigo {
     }
 
     public void moverse(double x, double y){
-        this.posicion.mover(this.velocidad * (this.posicion.getX() + x), this.velocidad * (this.posicion.getY() + y));
+        this.posicion.mover(this.posicion.getX() + x, this.posicion.getY() + y);
     }
 
     public void setEstado(EstadoEnemigo estado){
