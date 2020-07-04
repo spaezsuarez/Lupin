@@ -22,6 +22,12 @@ public abstract class EnemigoController {
         this.enemigo.moverse(this.enemigo.getVelocidad() * (this.enemigo.getPosicion().getX() + posicion.getX()), this.enemigo.getVelocidad() * (this.enemigo.getPosicion().getY() + posicion.getY()));
     }
 
+    public void mover(int x, int y) {
+        int xi = this.enemigo.getPosicion().getX();
+        int yi = this.enemigo.getPosicion().getY();
+        this.enemigo.getPosicion().mover(xi + x, yi + y);
+    }
+
     public Enemigo getEnemigo() {
         return this.enemigo;
     }
