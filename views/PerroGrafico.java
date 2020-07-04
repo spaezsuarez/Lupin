@@ -21,7 +21,6 @@ public class PerroGrafico extends Personaje {
 
     @Override
     public void mover() {
-        this.enemigo.mover();
         this.setLocation((int)this.enemigo.getEnemigo().getPosicion().getX(), (int)this.enemigo.getEnemigo().getPosicion().getY());
     }
 

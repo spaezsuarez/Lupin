@@ -70,7 +70,14 @@ public class Tablero extends JPanel implements SujetoObservable{
 
     public Jugador getJugador(){
         return this.jugador;
+    }
 
+    public void setPerros(PerroGrafico[] perros) {
+        this.perros = perros;
+    }
+
+    public PerroGrafico[] getPerros() {
+        return perros;
     }
 
     public void drawMap(Graphics2D lapiz) {
@@ -91,10 +98,6 @@ public class Tablero extends JPanel implements SujetoObservable{
     }
 
     public void colisiones() {
-
-        
-
-        Rectangle2D areajugador = new Rectangle2D.Double(jugador.getX(),jugador.getY(),40,30);
 
         Rectangle2D paredInferior = new Rectangle2D.Double(0,300,100,10);
         Rectangle2D paredInferiorDos = new Rectangle2D.Double(150,300,390,10); 

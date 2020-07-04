@@ -1,5 +1,4 @@
 package lupin.views;
-import lupin.models.Lupin;
 //import java.awt.Image;
 //import javax.swing.ImageIcon;
 

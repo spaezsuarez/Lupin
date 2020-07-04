@@ -3,11 +3,13 @@ package lupin.controllers.abstracts;
 import lupin.models.Lupin;
 import lupin.models.Posicion;
 import lupin.models.abstracts.Enemigo;
+import lupin.views.Tablero;
 
 public abstract class EnemigoController {
 
     private Enemigo enemigo;
     private Lupin lupin;
+    private Tablero tablero;
 
     public EnemigoController(Enemigo enemigo, Lupin lupin) {
         this.enemigo = enemigo;
@@ -42,6 +44,14 @@ public abstract class EnemigoController {
 
     public void setLupin(Lupin lupin) {
         this.lupin = lupin;
+    }
+
+    public void setTablero(Tablero tablero) {
+        this.tablero = tablero;
+    }
+
+    public Tablero getTablero() {
+        return tablero;
     }
     
 }

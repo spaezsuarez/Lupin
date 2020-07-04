@@ -23,6 +23,10 @@ public class Controller {
         hiloEnemigos = new EnemigosThread(hiloLupin.getLupinController().getLupin());
         Tablero tablero = new Tablero(hiloEnemigos.getPerrosControllers(), llavesJuego, hiloLupin.getLupinController());
         hiloLupin.getLupinController().getMovimiento().setTablero(tablero);
+        hiloEnemigos.getGuardianController().setTablero(tablero);
+        for(PerroController perroController : hiloEnemigos.getPerrosControllers()) {
+            perroController.setTablero(tablero);
+        }
 
         ventana = new View(tablero);
     }

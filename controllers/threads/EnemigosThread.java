@@ -40,8 +40,10 @@ public class EnemigosThread extends Thread {
     @Override
     public void run() {
         do {
+            int i = -1;
             for(PerroController perroController : perrosControllers) {
                 perroController.mover();
+                perroController.getTablero().getPerros()[++i].mover();
                 System.out.print("Perro: (" + perroController.getEnemigo().getPosicion().getX() + ", " + perroController.getEnemigo().getPosicion().getY() + ") ");
             }
             guardianController.mover();
