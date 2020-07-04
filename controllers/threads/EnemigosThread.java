@@ -49,7 +49,6 @@ public class EnemigosThread extends Thread {
         do {
             for(PerroController perroController : perrosControllers) {
                 perroController.mover();
-                System.out.println("Velocidad: " + perroController.getEnemigo().getVelocidad());
             }
             guardianController.mover();
             try {
