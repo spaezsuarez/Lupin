@@ -5,6 +5,7 @@ import lupin.controllers.PerroController;
 import lupin.models.Guardian;
 import lupin.models.Lupin;
 import lupin.models.Perro;
+import lupin.views.Tablero;
 
 public class EnemigosThread extends Thread {
 
@@ -13,12 +14,18 @@ public class EnemigosThread extends Thread {
 
     public EnemigosThread(Lupin lupin) {
         perrosControllers = new PerroController[] {
-            new PerroController(new Perro(100,200), lupin),
-            new PerroController(new Perro(200,300), lupin),
-            new PerroController(new Perro(300,200), lupin)
+            new PerroController(new Perro(100,200, 1), lupin),
+            new PerroController(new Perro(200,300, 1), lupin),
+            new PerroController(new Perro(300,200, 1), lupin)
         };
 
-        guardianController = new GuardianController(new Guardian(400, 300), lupin);
+        guardianController = new GuardianController(new Guardian(400, 300, 1), lupin);
+    }
+
+    public void setTablero(Tablero tablero) {
+        perrosControllers[0].setPerroGrafico(tablero.getPerros()[0]);
+        perrosControllers[1].setPerroGrafico(tablero.getPerros()[1]);
+        perrosControllers[2].setPerroGrafico(tablero.getPerros()[2]);
     }
 
     public void setPerrosControllers(PerroController[] perrosControllers) {
@@ -40,16 +47,12 @@ public class EnemigosThread extends Thread {
     @Override
     public void run() {
         do {
-            int i = -1;
             for(PerroController perroController : perrosControllers) {
                 perroController.mover();
-                perroController.getTablero().getPerros()[++i].mover();
-                System.out.print("Perro: (" + perroController.getEnemigo().getPosicion().getX() + ", " + perroController.getEnemigo().getPosicion().getY() + ") ");
             }
             guardianController.mover();
-            System.out.println("Guardian: (" + guardianController.getEnemigo().getPosicion().getX() + ", " + guardianController.getEnemigo().getPosicion().getY() + ")");
             try {
-                Thread.sleep(1);
+                Thread.sleep(10);
             } catch(InterruptedException e) {
                 System.out.println("Error en la Matrix");
             }

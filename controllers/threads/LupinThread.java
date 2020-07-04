@@ -22,7 +22,6 @@ public class LupinThread extends Thread {
     @Override
     public void run() {
         do {
-            System.out.print("Lupin: (" + lupinController.getLupin().getPosicion().getX() + ", " + lupinController.getLupin().getPosicion().getY() + ") ");
             try {
                 Thread.sleep(1);
             } catch(InterruptedException e) {
