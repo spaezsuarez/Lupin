@@ -1,7 +1,7 @@
-package models.Estados;
+package lupin.models.Estados;
 
-import models.abstracts.EstadoEnemigo;
-import models.abstracts.Enemigo;
+import lupin.models.abstracts.EstadoEnemigo;
+import lupin.models.abstracts.Enemigo;
 
 public class EnemigoFacil implements EstadoEnemigo {
 

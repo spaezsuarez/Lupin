@@ -1,7 +1,7 @@
-package controllers;
+package lupin.controllers;
 
-import models.Llave;
-import models.Posicion;
+import lupin.models.Llave;
+import lupin.models.Posicion;
 
 public class LlaveController {
 

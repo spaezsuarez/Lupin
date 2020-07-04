@@ -1,60 +1,85 @@
-package views;
 
-<<<<<<< HEAD
+package lupin.views;
+
 import javax.swing.JLabel;
-=======
 
->>>>>>> origin/Controllers
+
 import javax.swing.JPanel;
+
+import lupin.controllers.LlaveController;
+import lupin.controllers.LupinController;
+import lupin.controllers.PerroController;
+
 //import java.awt.Rectangle;
 import java.awt.geom.*;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-<<<<<<< HEAD
-import java.awt.event.*;
 import java.awt.BasicStroke;
+import lupin.models.abstracts.SujetoObservable;
+import lupin.models.ObservadorTablero;
 
-public class Tablero extends JPanel implements KeyListener {
+
+public class Tablero extends JPanel implements SujetoObservable{
 
     private static final long serialVersionUID = 1L;
-    // private Jugador j;
-    private JLabel personaje;
 
-    public Tablero() {
-
-        this.setBackground(Color.GRAY);
-        // this.j = new Jugador();
-        // addKeyListener(j.getPlayerController().getMovimiento());
-        addKeyListener(this);
-        setFocusable(true);
-        this.personaje = new JLabel("LUPIN");
-        this.personaje.setSize(30, 30);
-        this.add(personaje);
-=======
-import java.awt.BasicStroke;
-
-public class Tablero extends JPanel{
-
-    private static final long serialVersionUID = 1L;
     private Jugador jugador;
+    private ObservadorTablero observer;
+    private int cantidadLlaves;
+    private PerroGrafico[] perros;
+    private LlaveGrafica[] llaves;
 
-    public Tablero() {
+    public Tablero(PerroController[] perrosControllers,LlaveController[] llavesJuego,LupinController lupinController) {
 
         this.setLayout(null);
         this.setBackground(Color.GRAY);
-        this.jugador = new Jugador(this);
-        addKeyListener(jugador.getPlayerController().getMovimiento());
-        add(this.jugador);
-        setFocusable(true);
         
->>>>>>> origin/Controllers
+
+        cantidadLlaves = 3;
+        observer = new ObservadorTablero();
+        jugador = new Jugador(lupinController);
+        
+        this.perros = new PerroGrafico[]{
+            new PerroGrafico(perrosControllers[0], jugador),
+            new PerroGrafico(perrosControllers[1], jugador),
+            new PerroGrafico(perrosControllers[2], jugador)
+        };
+
+        this.llaves = new LlaveGrafica[]{
+            new LlaveGrafica(llavesJuego[0]),
+            new LlaveGrafica(llavesJuego[1]),
+            new LlaveGrafica(llavesJuego[2]),
+        };
+
+        observer.setEnemigos(this.perros);
+        this.addKeyListener(jugador.getPlayerController().getMovimiento());
+        
+        this.add(this.jugador);
+        this.add(this.perros[0]);
+        this.add(this.perros[1]);
+        this.add(this.perros[2]);
+        this.add(this.llaves[0]);
+        this.add(this.llaves[1]);
+        this.add(this.llaves[2]);
+        this.setFocusable(true);
+        
+    }
+
+    public void setJugador(Jugador jugador){
+        this.jugador = jugador;
+    }
+
+    public Jugador getJugador(){
+        return this.jugador;
+
     }
 
     public void drawMap(Graphics2D lapiz) {
         lapiz.setColor(Color.BLACK);
-        lapiz.setStroke(new BasicStroke(3));
-        lapiz.drawLine(0, 300, 540, 300);
+        lapiz.setStroke(new BasicStroke(10));
+        lapiz.drawLine(0, 300, 100, 300);
+        lapiz.drawLine(150, 300, 540, 300);
         lapiz.drawLine(540, 0, 540, 500);
 
     }
@@ -69,85 +94,22 @@ public class Tablero extends JPanel{
 
     public void colisiones() {
 
-<<<<<<< HEAD
-        Rectangle2D areaPersonaje = new Rectangle2D.Double(personaje.getX(),personaje.getY(),30,30);
+        
 
-        if(areaPersonaje.intersectsLine(0, 300, 540, 300)){
-            this.personaje.setLocation(personaje.getX(), personaje.getY()-10);
-        }
-
-        if(areaPersonaje.intersectsLine(540, 0, 540, 500)){
-            this.personaje.setLocation(personaje.getX()-10, personaje.getY());
-        }
-
-        if(this.personaje.getX() > this.getBounds().getMaxX()){
-            this.personaje.setLocation(personaje.getX()-30, personaje.getY());
-            
-        }
-        if(this.personaje.getX() < this.getBounds().getMinX()){
-            this.personaje.setLocation(personaje.getX()+10, personaje.getY());
-            
-        }
-        if(this.personaje.getY() > this.getBounds().getMaxY()){
-            this.personaje.setLocation(personaje.getX(), personaje.getY()-30);
-            
-        }
-        if(this.personaje.getY() < this.getBounds().getMinY()){
-            this.personaje.setLocation(personaje.getX(), personaje.getY()+10);
-            
-        }
-        for (int x = 0; x <= 540; x++) {
-            if (this.personaje.getX() == x && this.personaje.getY() == 300) {
-                this.personaje.setLocation(this.personaje.getX(),this.personaje.getY()-10);
-                
-            }
-        }
-        for(int y = 0; y <= 500; y++){
-            if (this.personaje.getX() == 540 && this.personaje.getY() == y) {
-                this.personaje.setLocation(this.personaje.getX()-10,this.personaje.getY());
-                
-            }
-        }
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {}
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-        int tecla = e.getKeyCode();
-        switch (tecla) {
-            case KeyEvent.VK_UP:
-                this.personaje.setLocation(personaje.getX(), personaje.getY() - 10);
-                this.colisiones();
-                break;
-            case KeyEvent.VK_DOWN:
-                this.personaje.setLocation(personaje.getX(), personaje.getY() + 10);
-                this.colisiones();
-                break;
-            case KeyEvent.VK_RIGHT:
-                this.personaje.setLocation(personaje.getX() + 10, personaje.getY());
-                this.colisiones();
-                break;
-            case KeyEvent.VK_LEFT:
-                this.personaje.setLocation(personaje.getX() - 10, personaje.getY());
-                this.colisiones();
-                break;
-        }
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {}
-=======
         Rectangle2D areajugador = new Rectangle2D.Double(jugador.getX(),jugador.getY(),40,30);
 
-        if(areajugador.intersectsLine(0, 300, 540, 300)){
+        Rectangle2D paredInferior = new Rectangle2D.Double(0,300,100,10);
+        Rectangle2D paredInferiorDos = new Rectangle2D.Double(150,300,390,10); 
+        Rectangle2D paredDerecha = new Rectangle2D.Double(540,0,10,500);
+
+        //areajugador.intersectsLine(0, 300, 540, 300)
+        if(this.jugador.getArea().intersects(paredInferior)){
             this.jugador.mover(0,-10);
         }
-
-        if(areajugador.intersectsLine(540, 0, 540, 500)){
+        if(this.jugador.getArea().intersects(paredInferiorDos)){
+            this.jugador.mover(0,-10);
+        }
+        if(this.jugador.getArea().intersects(paredDerecha)){
             this.jugador.mover(-10, 0);
         }
 
@@ -165,10 +127,25 @@ public class Tablero extends JPanel{
         }
         if(this.jugador.getY() < this.getBounds().getMinY()){
             this.jugador.mover(0, 10);
-            
+        }
+
+        //Colision llaves
+        for(LlaveGrafica l:llaves){
+            if(this.jugador.getArea().intersects(l.getArea())){
+                notificar();
+                cantidadLlaves -= 1;
+                this.remove(l);
+            }
         }
     }
 
->>>>>>> origin/Controllers
+    @Override
+    public void notificar() {
+        this.observer.setCantidadLlaves(this.cantidadLlaves);
+        this.observer.notificarEnemigos();
+        this.perros = observer.getEnemigos();
+        
+    }
+
 
 }

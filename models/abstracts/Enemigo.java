@@ -1,6 +1,6 @@
-package models.abstracts;
+package lupin.models.abstracts;
 
-import models.Posicion;
+import lupin.models.Posicion;
 
 public class Enemigo {
 
@@ -8,6 +8,10 @@ public class Enemigo {
     private Posicion posicion;
     private EstadoEnemigo estado;
 
+    public Enemigo(int x,int y){
+        this.posicion = new Posicion(x, y);
+        this.velocidad = 1;
+    }
 
     public void setVelocidad(int velocidad){
         this.velocidad = velocidad;
@@ -25,9 +29,8 @@ public class Enemigo {
         return this.posicion;
     }
 
-    public void moverse(int x, int y){
-        this.posicion.mover(x, y);
-
+    public void moverse(double x, double y){
+        this.posicion.mover(this.velocidad * (this.posicion.getX() + x), this.velocidad * (this.posicion.getY() + y));
     }
 
     public void setEstado(EstadoEnemigo estado){

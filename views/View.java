@@ -1,12 +1,9 @@
-package views;
+package lupin.views;
 
-<<<<<<< HEAD
-import java.awt.Dimension;
-import javax.swing.JFrame;
-=======
+
 import javax.swing.JFrame;
 import java.awt.Dimension;
->>>>>>> origin/Controllers
+
 
 public class View extends JFrame {
 
@@ -14,10 +11,10 @@ public class View extends JFrame {
     private Tablero tablero;
     private int alto,ancho;
 
-    public View(){
-        this.tablero = new Tablero();
+    public View(Tablero tablero){
         this.ancho = 740;
         this.alto = 500;
+        this.tablero = tablero;
 
     }
 

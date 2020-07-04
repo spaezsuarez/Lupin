@@ -1,23 +1,23 @@
-package models;
+package lupin.models;
 
 public class Posicion{
 
-    private int x,y;
+    private double x,y;
 
-    public Posicion(int x, int y){
+    public Posicion(double x, double y){
         this.x = x;
         this.y = y;
     }
 
-    public int getX(){
+    public double getX(){
         return this.x;
     }
 
-    public int getY(){
+    public double getY(){
         return this.y;
     }
 
-    public void mover(int x,int y){
+    public void mover(double x,double y){
         this.x = x;
         this.y = y;
     }

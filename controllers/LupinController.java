@@ -1,8 +1,8 @@
-package controllers;
+package lupin.controllers;
 
-import models.Lupin;
-import views.Jugador;
-import views.Tablero;
+import lupin.models.Lupin;
+import lupin.views.Jugador;
+import lupin.views.Tablero;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
@@ -12,9 +12,9 @@ public class LupinController {
     private LupinMovement movimiento;
     
 
-    public LupinController(Lupin lupin,Jugador jugador, Tablero tablero) {
+    public LupinController(Lupin lupin) {
         this.lupin = lupin;
-        this.movimiento = new LupinMovement(this,jugador,tablero);
+        this.movimiento = new LupinMovement(this);
     }
 
     public Lupin getLupin() {
@@ -41,49 +41,55 @@ class LupinMovement implements KeyListener {
     private Tablero tablero;
     private Jugador jugador;
 
-    public LupinMovement(LupinController controller,Jugador jugador,Tablero tablero) {
+    public LupinMovement(LupinController controller) {
         this.controller = controller;
-        this.tablero = tablero;
+    }
+
+    public void setJugador(Jugador jugador){
         this.jugador = jugador;
     }
 
-    @Override
+
+    
+
+    public Jugador getJugador(){
+        return this.jugador;
+    }
+
+    public void setTablero(Tablero tablero){
+        this.tablero = tablero;
+        this.jugador = this.tablero.getJugador();
+    }
+
+    public Tablero getTablero(){
+        return this.tablero;
+    }
+
     public void keyPressed(KeyEvent key) {
         int velocidad = this.controller.getLupin().getVelocidad();
-        int x = this.controller.getLupin().getPosicion().getX();
-        int y = this.controller.getLupin().getPosicion().getY();
-        int tecla = key.getKeyCode();
-        switch (tecla) {
+        double x = this.controller.getLupin().getPosicion().getX();
+        double y = this.controller.getLupin().getPosicion().getY();
+        switch (key.getKeyCode()) {
+
             case KeyEvent.VK_UP:
                 
-<<<<<<< HEAD
-                this.controller.getLupin().getPosicion().mover(x, y + velocidad);
-                System.out.println("up");
-=======
                 this.controller.getLupin().getPosicion().mover(x, y - velocidad);
->>>>>>> origin/Controllers
                 break;
             
             case KeyEvent.VK_DOWN:
 
-<<<<<<< HEAD
-                this.controller.getLupin().getPosicion().mover(x, y - velocidad);
-                System.out.println("down");
-=======
+
                 this.controller.getLupin().getPosicion().mover(x, y + velocidad);
->>>>>>> origin/Controllers
                 break;
             
             case KeyEvent.VK_LEFT:
 
                 this.controller.getLupin().getPosicion().mover(x - velocidad, y);
-                System.out.println("left");
                 break;
 
             case KeyEvent.VK_RIGHT:
 
                 this.controller.getLupin().getPosicion().mover(x + velocidad, y);
-                System.out.println("right");
                 break;
             
         }

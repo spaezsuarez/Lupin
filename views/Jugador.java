@@ -1,52 +1,48 @@
-package views;
-
-import controllers.LupinController;
-import models.Lupin;
-import javax.swing.JLabel;
-<<<<<<< HEAD
+package lupin.views;
+import lupin.models.Lupin;
 //import java.awt.Image;
 //import javax.swing.ImageIcon;
-=======
->>>>>>> origin/Controllers
+
+import lupin.controllers.LupinController;
+import lupin.views.abstracts.*;
+import java.awt.geom.*;
 
 
-public class Jugador extends JLabel{
+public class Jugador extends Personaje{
 
     private static final long serialVersionUID = 1L;
     private LupinController controller;
 
-<<<<<<< HEAD
-    public Jugador(){
-        this.controller = new LupinController(new Lupin());
-        this.setSize(30,30);
-        this.setText("lUPIN");
-=======
 
-    public Jugador(Tablero tablero){
+    
+
+    public Jugador(LupinController lupin){
         this.setSize(40,30);
         this.setText("Lupin");
-        this.controller = new LupinController(new Lupin(1,1),this,tablero);
->>>>>>> origin/Controllers
+        this.controller = lupin;
     }
 
     public LupinController getPlayerController(){
         return this.controller;
     }
-<<<<<<< HEAD
-=======
 
     public void mover(){
-        this.setLocation(this.controller.getLupin().getPosicion().getX(),this.controller.getLupin().getPosicion().getY());
+        this.setLocation((int)this.controller.getLupin().getPosicion().getX(), (int)this.controller.getLupin().getPosicion().getY());
     }
 
     public void mover(int x, int y){
-        int xi = controller.getLupin().getPosicion().getX();
-        int yi = controller.getLupin().getPosicion().getY();
+        double xi = controller.getLupin().getPosicion().getX();
+        double yi = controller.getLupin().getPosicion().getY();
         this.controller.getLupin().getPosicion().mover(xi+x,yi+y);
-        this.setLocation(this.controller.getLupin().getPosicion().getX(),this.controller.getLupin().getPosicion().getY());
+        this.setLocation((int)this.controller.getLupin().getPosicion().getX(), (int)this.controller.getLupin().getPosicion().getY());
 
     }
->>>>>>> origin/Controllers
+
+
+    public Rectangle2D getArea(){
+        return new Rectangle2D.Double(this.getX(),this.getY(),40,30);
+    }
+
     
     
 }
