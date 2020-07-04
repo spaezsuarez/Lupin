@@ -1,7 +1,12 @@
 package views;
 
+<<<<<<< HEAD
 import java.awt.Dimension;
 import javax.swing.JFrame;
+=======
+import javax.swing.JFrame;
+import java.awt.Dimension;
+>>>>>>> origin/Controllers
 
 public class View extends JFrame {
 

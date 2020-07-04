@@ -6,6 +6,11 @@ public class Lupin {
     private Llave llave;
     private int velocidad;
 
+    public Lupin(int x, int y){
+        this.posicion = new Posicion(x,y);
+        this.velocidad = 5;
+    }
+
     public void setVelocidad(int velocidad){
         this.velocidad = velocidad;
     }

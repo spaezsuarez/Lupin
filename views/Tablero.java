@@ -1,12 +1,17 @@
 package views;
 
+<<<<<<< HEAD
 import javax.swing.JLabel;
+=======
+
+>>>>>>> origin/Controllers
 import javax.swing.JPanel;
 //import java.awt.Rectangle;
 import java.awt.geom.*;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+<<<<<<< HEAD
 import java.awt.event.*;
 import java.awt.BasicStroke;
 
@@ -26,6 +31,24 @@ public class Tablero extends JPanel implements KeyListener {
         this.personaje = new JLabel("LUPIN");
         this.personaje.setSize(30, 30);
         this.add(personaje);
+=======
+import java.awt.BasicStroke;
+
+public class Tablero extends JPanel{
+
+    private static final long serialVersionUID = 1L;
+    private Jugador jugador;
+
+    public Tablero() {
+
+        this.setLayout(null);
+        this.setBackground(Color.GRAY);
+        this.jugador = new Jugador(this);
+        addKeyListener(jugador.getPlayerController().getMovimiento());
+        add(this.jugador);
+        setFocusable(true);
+        
+>>>>>>> origin/Controllers
     }
 
     public void drawMap(Graphics2D lapiz) {
@@ -46,6 +69,7 @@ public class Tablero extends JPanel implements KeyListener {
 
     public void colisiones() {
 
+<<<<<<< HEAD
         Rectangle2D areaPersonaje = new Rectangle2D.Double(personaje.getX(),personaje.getY(),30,30);
 
         if(areaPersonaje.intersectsLine(0, 300, 540, 300)){
@@ -116,5 +140,35 @@ public class Tablero extends JPanel implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {}
+=======
+        Rectangle2D areajugador = new Rectangle2D.Double(jugador.getX(),jugador.getY(),40,30);
+
+        if(areajugador.intersectsLine(0, 300, 540, 300)){
+            this.jugador.mover(0,-10);
+        }
+
+        if(areajugador.intersectsLine(540, 0, 540, 500)){
+            this.jugador.mover(-10, 0);
+        }
+
+        if(this.jugador.getX() > this.getBounds().getMaxX()){
+            this.jugador.mover(-30, 0);
+            
+        }
+        if(this.jugador.getX() < this.getBounds().getMinX()){
+            this.jugador.mover(30, 0);
+            
+        }
+        if(this.jugador.getY() > this.getBounds().getMaxY()){
+            this.jugador.mover(0, -10);
+            
+        }
+        if(this.jugador.getY() < this.getBounds().getMinY()){
+            this.jugador.mover(0, 10);
+            
+        }
+    }
+
+>>>>>>> origin/Controllers
 
 }
