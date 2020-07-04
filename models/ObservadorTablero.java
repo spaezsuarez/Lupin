@@ -9,23 +9,28 @@ import models.abstracts.EstadoEnemigo;
 
 public class ObservadorTablero implements Observador {
     private int cantidadLlaves;
-    private ArrayList<Enemigo> enemigos;
+    private ArrayList<Perro> enemigos;
 
     public ObservadorTablero(){
-        this.enemigos = new ArrayList<>();
+        this.enemigos = new ArrayList<Perro>();
         this.cantidadLlaves = 0;
     }
 
-    public void setEnemigos(Enemigo enemigo){
-        this.enemigos.add(enemigo);
+    public void setEnemigos(ArrayList<Perro> enemigos){
+        this.enemigos = enemigos;
     }
 
-    public ArrayList<Enemigo> getEnemigos() {
+    public void setEnemigo(Perro perro){
+        this.enemigos.add(perro);
+    }
+
+    public ArrayList<Perro> getEnemigos() {
         return this.enemigos;
     }
 
     public void setEstadoEnemigos(EstadoEnemigo estado){
         for(Enemigo e: this.enemigos){
+            System.out.println("El estado del enemigo es: " + estado);
             e.setEstado(estado);
         }
     }

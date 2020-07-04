@@ -8,6 +8,9 @@ public class Enemigo {
     private Posicion posicion;
     private EstadoEnemigo estado;
 
+    public Enemigo(int x,int y){
+        this.posicion = new Posicion(x, y);
+    }
 
     public void setVelocidad(int velocidad){
         this.velocidad = velocidad;
