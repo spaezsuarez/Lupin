@@ -1,6 +1,8 @@
 package controllers;
 
 import models.Lupin;
+import views.Jugador;
+import views.Tablero;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
@@ -8,10 +10,11 @@ public class LupinController {
     
     private Lupin lupin;
     private LupinMovement movimiento;
+    
 
-    public LupinController(Lupin lupin) {
+    public LupinController(Lupin lupin,Jugador jugador, Tablero tablero) {
         this.lupin = lupin;
-        this.movimiento = new LupinMovement(this);
+        this.movimiento = new LupinMovement(this,jugador,tablero);
     }
 
     public Lupin getLupin() {
@@ -26,14 +29,22 @@ public class LupinController {
         return this.movimiento;
     }
 
+    public void setMovimiento(LupinMovement movimiento) {
+        this.movimiento = movimiento;
+    }
+
 }
 
 class LupinMovement implements KeyListener {
 
     private LupinController controller;
+    private Tablero tablero;
+    private Jugador jugador;
 
-    public LupinMovement(LupinController controller) {
+    public LupinMovement(LupinController controller,Jugador jugador,Tablero tablero) {
         this.controller = controller;
+        this.tablero = tablero;
+        this.jugador = jugador;
     }
 
     public void keyPressed(KeyEvent key) {
@@ -43,12 +54,12 @@ class LupinMovement implements KeyListener {
         switch (key.getKeyCode()) {
             case KeyEvent.VK_UP:
                 
-                this.controller.getLupin().getPosicion().mover(x, y + velocidad);
+                this.controller.getLupin().getPosicion().mover(x, y - velocidad);
                 break;
             
             case KeyEvent.VK_DOWN:
 
-                this.controller.getLupin().getPosicion().mover(x, y - velocidad);
+                this.controller.getLupin().getPosicion().mover(x, y + velocidad);
                 break;
             
             case KeyEvent.VK_LEFT:
@@ -62,6 +73,8 @@ class LupinMovement implements KeyListener {
                 break;
             
         }
+        this.jugador.mover();
+        this.tablero.colisiones();
     }
 
     public void keyTyped(KeyEvent key) {}
