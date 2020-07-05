@@ -1,21 +1,21 @@
 package lupin.views;
 
-import lupin.controllers.abstracts.EnemigoController;
+import lupin.controllers.GuardianController;
 import lupin.views.abstracts.Personaje;
 
 public class GuardianGrafico extends Personaje {
 
     private static final long serialVersionUID = 1L;
-    private EnemigoController guardian;
+    private GuardianController guardian;
 
-    public GuardianGrafico(EnemigoController guardian){
+    public GuardianGrafico(GuardianController guardian){
         this.setSize(70,30);
         this.setText("Guardian");
         this.guardian = guardian;
         this.setLocation((int)this.guardian.getEnemigo().getPosicion().getX(),(int)this.guardian.getEnemigo().getPosicion().getY());
     }
 
-    public EnemigoController getGuardianController(){
+    public GuardianController getGuardianController(){
         return this.guardian;
     }
 

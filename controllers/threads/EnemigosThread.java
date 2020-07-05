@@ -1,5 +1,6 @@
 package lupin.controllers.threads;
 
+import lupin.controllers.GuardianController;
 import lupin.controllers.abstracts.EnemigoController;
 import lupin.models.Guardian;
 import lupin.models.Lupin;
@@ -9,7 +10,7 @@ import lupin.views.Tablero;
 public class EnemigosThread extends Thread {
 
     private EnemigoController[] perrosControllers;
-    private EnemigoController guardianController;
+    private GuardianController guardianController;
 
     public EnemigosThread(Lupin lupin) {
         perrosControllers = new EnemigoController[] {
@@ -18,7 +19,7 @@ public class EnemigosThread extends Thread {
             new EnemigoController(new Perro(300,200, 3), lupin)
         };
 
-        guardianController = new EnemigoController(new Guardian(600, 300, 0), lupin);
+        guardianController = new GuardianController(new Guardian(600, 300, 0), lupin);
     }
 
     public void setTablero(Tablero tablero) {
@@ -36,11 +37,11 @@ public class EnemigosThread extends Thread {
         return this.perrosControllers;
     }
 
-    public void setGuardianController(EnemigoController guardianController) {
+    public void setGuardianController(GuardianController guardianController) {
         this.guardianController = guardianController;
     }
 
-    public EnemigoController getGuardianController() {
+    public GuardianController getGuardianController() {
         return this.guardianController;
     }
 
