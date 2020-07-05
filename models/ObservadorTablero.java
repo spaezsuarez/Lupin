@@ -24,7 +24,6 @@ public class ObservadorTablero implements Observador {
 
     public void setEstadoEnemigos(EstadoEnemigo estado){
         for(PerroGrafico e: this.enemigos){
-            System.out.println("la velocidad del enemigo es: " + e.getPerroController().getEnemigo().getVelocidad());
             e.getPerroController().getEnemigo().setEstado(estado);
         }
     }

@@ -83,6 +83,14 @@ public class Tablero extends JPanel implements SujetoObservable{
         return perros;
     }
 
+    public void setGuardian(GuardianGrafico guardian) {
+        this.guardian = guardian;
+    }
+
+    public GuardianGrafico getGuardian() {
+        return guardian;
+    }
+
     public void drawMap(Graphics2D lapiz) {
         lapiz.setColor(Color.BLACK);
         lapiz.setStroke(new BasicStroke(10));
