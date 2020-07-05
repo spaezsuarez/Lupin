@@ -1,20 +1,29 @@
 package lupin.views;
 
+import lupin.controllers.GuardianController;
 import lupin.views.abstracts.Personaje;
 
 public class GuardianGrafico extends Personaje {
 
     private static final long serialVersionUID = 1L;
+    private GuardianController guardian;
+
+    public GuardianGrafico(GuardianController guardian){
+        this.setSize(70,30);
+        this.setText("Guardian");
+        this.guardian = guardian;
+        this.setLocation((int)this.guardian.getEnemigo().getPosicion().getX(),(int)this.guardian.getEnemigo().getPosicion().getY());
+    }
 
     @Override
     public void mover() {
-        // TODO Auto-generated method stub
+        this.setLocation((int)guardian.getEnemigo().getPosicion().getX(),(int)guardian.getEnemigo().getPosicion().getY());
 
     }
 
     @Override
     public void mover(int x, int y) {
-        // TODO Auto-generated method stub
+        this.guardian.mover(x, y);
 
     }
     
