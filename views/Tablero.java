@@ -103,6 +103,14 @@ public class Tablero extends JPanel implements SujetoObservable{
         return guardian;
     }
 
+    public void setTesoro(TesoroGrafico tesoro) {
+        this.tesoro = tesoro;
+    }
+
+    public TesoroGrafico getTesoro() {
+        return tesoro;
+    }
+
     public void drawMap(Graphics2D lapiz) {
         lapiz.setStroke(new BasicStroke(10));
 
@@ -259,7 +267,7 @@ public class Tablero extends JPanel implements SujetoObservable{
 
     public void generarGuardian(){
         if(this.llaves.isEmpty()){
-            this.guardian.getGuardianController().getEnemigo().setVelocidad(5);
+            this.guardian.getGuardianController().getEnemigo().setVelocidad(10);
             this.add(this.guardian);
         }
     }

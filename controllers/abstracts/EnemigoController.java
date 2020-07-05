@@ -22,14 +22,12 @@ public class EnemigoController {
         double magnitud = Math.sqrt(Math.pow(posicion.getX(), 2) + Math.pow(posicion.getY(), 2));
         posicion.mover((posicion.getX() / magnitud), (posicion.getY() / magnitud));
         posicion.mover(enemigo.getVelocidad() * posicion.getX(), enemigo.getVelocidad() * posicion.getY());
-        this.enemigo.moverse(posicion.getX(), posicion.getY());
-        this.enemigoGrafico.mover();
+        mover(posicion.getX(), posicion.getY());
     }
 
-    public void mover(int x, int y) {
-        double xi = this.enemigo.getPosicion().getX();
-        double yi = this.enemigo.getPosicion().getY();
-        this.enemigo.getPosicion().mover(xi + x, yi + y);
+    public void mover(double x, double y) {
+        this.enemigo.moverse(x, y);
+        this.enemigoGrafico.mover();
     }
 
     public Enemigo getEnemigo() {

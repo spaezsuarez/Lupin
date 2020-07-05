@@ -8,7 +8,7 @@ public class Enemigo {
     private Posicion posicion;
     private EstadoEnemigo estado;
 
-    public Enemigo(int x,int y, int velocidad){
+    public Enemigo(double x,double y, int velocidad){
         this.posicion = new Posicion(x, y);
         this.velocidad = velocidad;
     }

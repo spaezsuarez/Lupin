@@ -19,7 +19,7 @@ public class EnemigosThread extends Thread {
             new EnemigoController(new Perro(480,420, 0), lupin)
         };
 
-        guardianController = new GuardianController(new Guardian(600, 200, 0), lupin);
+        guardianController = new GuardianController(new Guardian(515, 300, 0), lupin);
     }
 
     public void setTablero(Tablero tablero) {
@@ -27,6 +27,7 @@ public class EnemigosThread extends Thread {
         perrosControllers[1].setEnemigoGrafico(tablero.getPerros()[1]);
         perrosControllers[2].setEnemigoGrafico(tablero.getPerros()[2]);
         guardianController.setEnemigoGrafico(tablero.getGuardian());
+        guardianController.setTesoro(tablero.getTesoro().getTesoroController().getTesoro());
     }
 
     public void setPerrosControllers(EnemigoController[] perrosControllers) {
