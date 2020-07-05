@@ -21,20 +21,21 @@ public class Jugador extends Personaje{
         this.controller = lupin;
     }
 
-    public LupinController getPlayerController(){
+    public LupinController getPlayerController() {
         return this.controller;
     }
 
-    public void mover(){
+    @Override
+    public void mover() {
         this.setLocation((int)this.controller.getLupin().getPosicion().getX(), (int)this.controller.getLupin().getPosicion().getY());
     }
 
-    public void mover(int x, int y){
-        double xi = controller.getLupin().getPosicion().getX();
-        double yi = controller.getLupin().getPosicion().getY();
-        this.controller.getLupin().getPosicion().mover(xi+x,yi+y);
-        this.setLocation((int)this.controller.getLupin().getPosicion().getX(), (int)this.controller.getLupin().getPosicion().getY());
+    @Override
+    public void mover(int x, int y) {}
 
+    public void chocar() {
+        this.controller.getLupin().getPosicion().mover(this.controller.getLupin().getPosicion().getXLast(), this.controller.getLupin().getPosicion().getYLast());
+        this.setLocation((int)this.controller.getLupin().getPosicion().getX(), (int)this.controller.getLupin().getPosicion().getY());
     }
 
 
