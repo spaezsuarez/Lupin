@@ -115,29 +115,29 @@ public class Tablero extends JPanel implements SujetoObservable{
 
         //areajugador.intersectsLine(0, 300, 540, 300)
         if(this.jugador.getArea().intersects(paredInferior)){
-            this.jugador.mover(0,-10);
+            this.jugador.chocar();
         }
         if(this.jugador.getArea().intersects(paredInferiorDos)){
-            this.jugador.mover(0,-10);
+            this.jugador.chocar();
         }
         if(this.jugador.getArea().intersects(paredDerecha)){
-            this.jugador.mover(-10, 0);
+            this.jugador.chocar();
         }
 
         if(this.jugador.getPlayerController().getLupin().getPosicion().getX() > this.getBounds().getMaxX()){
-            this.jugador.mover(-30, 0);
+            this.jugador.chocar();
             
         }
         if(this.jugador.getPlayerController().getLupin().getPosicion().getX() < this.getBounds().getMinX()){
-            this.jugador.mover(30, 0);
+            this.jugador.chocar();
             
         }
         if(this.jugador.getPlayerController().getLupin().getPosicion().getY() > this.getBounds().getMaxY() - 20){
-            this.jugador.mover(0, -10);
+            this.jugador.chocar();
             
         }
         if(this.jugador.getPlayerController().getLupin().getPosicion().getY() < this.getBounds().getMinY()){
-            this.jugador.mover(0, 10);
+            this.jugador.chocar();
         }
 
         //Colision llaves
