@@ -10,14 +10,13 @@ public class LlaveGrafica extends JLabel {
     private LlaveController llave;
     private final double x,y;
 
-    public LlaveGrafica(LlaveController llave){
 
-        this.setText("Llave");
+    public LlaveGrafica(LlaveController llave){
         this.setSize(60,40);
+        this.setText("llaves");
         this.llave = llave;
         this.x = this.llave.getLlave().getPosicion().getX();
         this.y = this.llave.getLlave().getPosicion().getY();
-
         this.setLocation((int)x, (int)y);
 
     }
@@ -29,6 +28,7 @@ public class LlaveGrafica extends JLabel {
     public Rectangle2D getArea(){
         return new Rectangle2D.Double(x,y,60,40);
     }
+
     
     
 }

@@ -17,12 +17,13 @@ import java.awt.BasicStroke;
 import lupin.models.abstracts.SujetoObservable;
 import lupin.models.ObservadorTablero;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+import lupin.controllers.TesoroController;
 
 
 public class Tablero extends JPanel implements SujetoObservable{
 
     private static final long serialVersionUID = 1L;
-
     private Jugador jugador;
     private ObservadorTablero observer;
     private int cantidadLlaves;
@@ -31,12 +32,16 @@ public class Tablero extends JPanel implements SujetoObservable{
     private ArrayList<LlaveGrafica> llaves;
     private boolean estadoPuerta1 = false,estadoPuerta2 = false,estadoPuerta3 = false;
     private PuertaGrafica puertaUno,puertaDos,puertaTres;
+    private TesoroGrafico tesoro;
+    
 
-    public Tablero(EnemigoController[] perrosControllers, LlaveController[] llavesJuego, GuardianController guardianController, LupinController lupinController) {
+
+    public Tablero(EnemigoController[] perrosControllers, LlaveController[] llavesJuego, GuardianController guardianController, TesoroController tesoro, LupinController lupinController) {
 
         this.setLayout(null);
         Color color = new Color(153,134,244);
         this.setBackground(color);
+        this.tesoro= new TesoroGrafico(tesoro);
         
         puertaUno = new PuertaGrafica(235, 297, 60, 1);
         puertaDos = new PuertaGrafica(405, 297, 60, 1);
@@ -68,7 +73,9 @@ public class Tablero extends JPanel implements SujetoObservable{
         this.add(this.llaves.get(0));
         this.add(this.llaves.get(1));
         this.add(this.llaves.get(2));
+        this.add(this.tesoro);
         this.setFocusable(true);
+        
         
     }
 
@@ -97,8 +104,9 @@ public class Tablero extends JPanel implements SujetoObservable{
     }
 
     public void drawMap(Graphics2D lapiz) {
-        lapiz.setColor(Color.BLACK);
         lapiz.setStroke(new BasicStroke(10));
+
+
         //Paredes horizontales
         lapiz.drawLine(0, 300, 30, 300); //paredi1
         lapiz.drawLine(100, 300, 180, 300); //paredi2
@@ -119,6 +127,7 @@ public class Tablero extends JPanel implements SujetoObservable{
         //Dibujo puertas
         lapiz.setStroke(new BasicStroke(4));
         lapiz.setColor(Color.WHITE);
+        
 
         if(estadoPuerta1 == false){
             lapiz.draw(puertaUno.getForma());
@@ -129,6 +138,7 @@ public class Tablero extends JPanel implements SujetoObservable{
         if(estadoPuerta3 == false){
             lapiz.draw(puertaTres.getForma());
         }
+        
     }
 
     @Override
@@ -149,6 +159,9 @@ public class Tablero extends JPanel implements SujetoObservable{
         Rectangle2D paredInferiorSeis = new Rectangle2D.Double(470,300,60,10);
         Rectangle2D paredDerechaUno = new Rectangle2D.Double(540,0,10,50);
         Rectangle2D paredDerechaDos = new Rectangle2D.Double(540,100,10,400);
+        Rectangle2D paredDerechatres = new Rectangle2D.Double(180,300,10,200);
+        Rectangle2D paredDerechault = new Rectangle2D.Double(360,300,10,200);
+
         
 
         //areajugador.intersectsLine(0, 300, 540, 300)
@@ -176,6 +189,12 @@ public class Tablero extends JPanel implements SujetoObservable{
         if(this.jugador.getArea().intersects(paredDerechaDos)){
             this.jugador.chocar();
         }
+        if (this.jugador.getArea().intersects(paredDerechatres)){
+            this.jugador.chocar();
+        }
+        if (this.jugador.getArea().intersects(paredDerechault)){
+            this.jugador.chocar();
+        }
 
         if(this.jugador.getArea().intersects(puertaUno.getForma()) && estadoPuerta1 == false){
             this.jugador.chocar();
@@ -187,7 +206,7 @@ public class Tablero extends JPanel implements SujetoObservable{
             this.jugador.chocar();
         }
 
-        if(this.jugador.getPlayerController().getLupin().getPosicion().getX() > this.getBounds().getMaxX()){
+        if(this.jugador.getArea().intersectsLine(735,0,735,500)){
             this.jugador.chocar();
             
         }
@@ -214,7 +233,9 @@ public class Tablero extends JPanel implements SujetoObservable{
                     generarGuardian();
                     cambiarPuerta();
                     
-                }catch(Exception e){}
+                }catch(ConcurrentModificationException e){
+                    System.out.println(" ");
+                }
             }
         }
     }
