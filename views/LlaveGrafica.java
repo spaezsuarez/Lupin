@@ -15,17 +15,7 @@ public class LlaveGrafica extends JLabel {
 
     public LlaveGrafica(LlaveController llave){
         this.setSize(60,40);
-        /*String rutaImg = new String();
-        rutaImg= "img/1.jpg";
-        ImageIcon imagenExterna = new ImageIcon(rutaImg);
-        Image Img= imagenExterna.getImage();
-        Image nuevaimagen = Img.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon imagen= new ImageIcon(nuevaimagen);
-        this.setIcon(imagen);
-        this.setVisible(true);
-*/
-        //this.setIcon(new ImageIcon("/img/1.jpg"));
-       // this.setVisible(true);
+        this.setText("llaves");
         this.llave = llave;
         this.x = this.llave.getLlave().getPosicion().getX();
         this.y = this.llave.getLlave().getPosicion().getY();

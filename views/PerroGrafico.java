@@ -1,21 +1,21 @@
 package lupin.views;
 
-import lupin.controllers.PerroController;
+import lupin.controllers.abstracts.EnemigoController;
 import lupin.views.abstracts.Personaje;
 
 public class PerroGrafico extends Personaje {
 
     private static final long serialVersionUID = 1L;
-    private PerroController enemigo;
+    private EnemigoController enemigo;
 
-    public PerroGrafico(PerroController enemigo,Jugador jugador){
+    public PerroGrafico(EnemigoController enemigo,Jugador jugador){
         this.setSize(60, 30);
         this.setText("Perro");
         this.enemigo = enemigo;
         this.setLocation((int)this.enemigo.getEnemigo().getPosicion().getX(), (int)this.enemigo.getEnemigo().getPosicion().getY());
     }
 
-    public PerroController getPerroController(){
+    public EnemigoController getPerroController(){
         return this.enemigo;
     }
 

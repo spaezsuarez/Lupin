@@ -25,5 +25,10 @@ public class ObjetoEscenario {
     public String getPassword(){
         return this.password;
     }
+
+    public ObjetoEscenario(Posicion posicion) {
+        this.posicion = posicion;
+    }
+    
     
 }
