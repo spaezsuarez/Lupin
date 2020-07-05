@@ -33,7 +33,8 @@ public class Tablero extends JPanel implements SujetoObservable{
     public Tablero(PerroController[] perrosControllers,LlaveController[] llavesJuego,GuardianController guardianController,LupinController lupinController) {
 
         this.setLayout(null);
-        this.setBackground(Color.GRAY);
+        Color color = new Color(153,134,244);
+        this.setBackground(color);
         
         cantidadLlaves = 3;
         observer = new ObservadorTablero();
@@ -93,9 +94,23 @@ public class Tablero extends JPanel implements SujetoObservable{
     public void drawMap(Graphics2D lapiz) {
         lapiz.setColor(Color.BLACK);
         lapiz.setStroke(new BasicStroke(10));
-        lapiz.drawLine(0, 300, 100, 300);
-        lapiz.drawLine(150, 300, 540, 300);
-        lapiz.drawLine(540, 0, 540, 500);
+        //Paredes horizontales
+        lapiz.drawLine(0, 300, 30, 300); //paredi1
+        lapiz.drawLine(100, 300, 180, 300); //paredi2
+        //---------------------------------
+        lapiz.drawLine(180, 300, 230, 300); //paredi3
+        lapiz.drawLine(300, 300, 360, 300); //paredi4
+        //---------------------------------
+        lapiz.drawLine(360, 300, 400, 300); //paredi5
+        lapiz.drawLine(470, 300, 540, 300); //paredi6
+        //pared laterales intermedias
+        lapiz.drawLine(180, 300, 180, 500);
+        lapiz.drawLine(360, 300, 360, 500);
+       
+        //Pared lateral grande
+        lapiz.drawLine(540, 0, 540, 50);
+        lapiz.drawLine(540, 100, 540, 500);
+        
 
     }
 
@@ -109,18 +124,35 @@ public class Tablero extends JPanel implements SujetoObservable{
 
     public void colisiones() {
 
-        Rectangle2D paredInferior = new Rectangle2D.Double(0,300,100,10);
-        Rectangle2D paredInferiorDos = new Rectangle2D.Double(150,300,390,10); 
-        Rectangle2D paredDerecha = new Rectangle2D.Double(540,0,10,500);
+        Rectangle2D paredInferiorUno = new Rectangle2D.Double(0,300,30,10);
+        Rectangle2D paredInferiorDos = new Rectangle2D.Double(100,300,80,10);
+        Rectangle2D paredInferiorTres = new Rectangle2D.Double(180,300,50,10);
+        Rectangle2D paredInferiorCuatro = new Rectangle2D.Double(300,300,60,10);
+        Rectangle2D paredInferiorCinco = new Rectangle2D.Double(360,300,40,10);
+        Rectangle2D paredInferiorSeis = new Rectangle2D.Double(470,300,60,10);
+        Rectangle2D paredDerechaUno = new Rectangle2D.Double(540,0,10,50);
+        
 
         //areajugador.intersectsLine(0, 300, 540, 300)
-        if(this.jugador.getArea().intersects(paredInferior)){
+        if(this.jugador.getArea().intersects(paredInferiorUno)){
             this.jugador.chocar();
         }
         if(this.jugador.getArea().intersects(paredInferiorDos)){
             this.jugador.chocar();
         }
-        if(this.jugador.getArea().intersects(paredDerecha)){
+        if(this.jugador.getArea().intersects(paredDerechaUno)){
+            this.jugador.chocar();
+        }
+        if(this.jugador.getArea().intersects(paredInferiorTres)){
+            this.jugador.chocar();
+        }
+        if(this.jugador.getArea().intersects(paredInferiorCuatro)){
+            this.jugador.chocar();
+        }
+        if(this.jugador.getArea().intersects(paredInferiorCinco)){
+            this.jugador.chocar();
+        }
+        if(this.jugador.getArea().intersects(paredInferiorSeis)){
             this.jugador.chocar();
         }
 
