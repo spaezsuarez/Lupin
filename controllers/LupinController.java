@@ -14,6 +14,7 @@ public class LupinController {
 
     public LupinController(Lupin lupin) {
         this.lupin = lupin;
+        this.movimiento =new LupinMovement (this);
     }
 
     public Lupin getLupin() {
