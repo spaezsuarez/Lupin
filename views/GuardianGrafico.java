@@ -15,6 +15,10 @@ public class GuardianGrafico extends Personaje {
         this.setLocation((int)this.guardian.getEnemigo().getPosicion().getX(),(int)this.guardian.getEnemigo().getPosicion().getY());
     }
 
+    public GuardianController getGuardianController(){
+        return this.guardian;
+    }
+
     @Override
     public void mover() {
         this.setLocation((int)guardian.getEnemigo().getPosicion().getX(),(int)guardian.getEnemigo().getPosicion().getY());

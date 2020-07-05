@@ -62,7 +62,6 @@ public class Tablero extends JPanel implements SujetoObservable{
         this.add(this.llaves.get(0));
         this.add(this.llaves.get(1));
         this.add(this.llaves.get(2));
-        this.add(this.guardian);
         this.setFocusable(true);
         
     }
@@ -149,10 +148,19 @@ public class Tablero extends JPanel implements SujetoObservable{
                 this.remove(l);
                 try{
                     this.llaves.remove(l);
+                    this.generarGuardian();
+                    
                 }catch(Exception e){}
                 
                 
             }
+        }
+    }
+
+    public void generarGuardian(){
+        if(this.llaves.isEmpty()){
+            this.guardian.getGuardianController().getEnemigo().setVelocidad(5);
+            this.add(this.guardian);
         }
     }
 
