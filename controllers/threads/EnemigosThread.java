@@ -19,7 +19,7 @@ public class EnemigosThread extends Thread {
             new PerroController(new Perro(300,200, 3), lupin)
         };
 
-        guardianController = new GuardianController(new Guardian(600, 300, 5), lupin);
+        guardianController = new GuardianController(new Guardian(600, 300, 0), lupin);
     }
 
     public void setTablero(Tablero tablero) {
