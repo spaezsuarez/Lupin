@@ -13,9 +13,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.BasicStroke;
+import java.awt.Image;
 import lupin.models.abstracts.SujetoObservable;
 import lupin.models.ObservadorTablero;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 
 public class Tablero extends JPanel implements SujetoObservable{
@@ -29,9 +32,8 @@ public class Tablero extends JPanel implements SujetoObservable{
     private ArrayList<LlaveGrafica> llaves;
 
     public Tablero(PerroController[] perrosControllers,LlaveController[] llavesJuego,LupinController lupinController) {
-
+        repaint();
         this.setLayout(null);
-        this.setBackground(Color.GRAY);
         
 
         cantidadLlaves = 3;
@@ -80,17 +82,24 @@ public class Tablero extends JPanel implements SujetoObservable{
     }
 
     public void drawMap(Graphics2D lapiz) {
-        lapiz.setColor(Color.BLACK);
+        /*lapiz.setColor(Color.BLACK);
         lapiz.setStroke(new BasicStroke(10));
         lapiz.drawLine(0, 300, 100, 300);
         lapiz.drawLine(150, 300, 540, 300);
         lapiz.drawLine(540, 0, 540, 500);
+*/
+        Image imagen;
+        imagen = new ImageIcon(getClass().getResource("/img/3.jpg")).getImage();
+        lapiz.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        
+        
 
     }
 
     @Override
     public void paint(Graphics lapiz) {
         super.paint(lapiz);
+        setOpaque(false);
         Graphics2D lapizNuevo = (Graphics2D) lapiz;
         this.drawMap(lapizNuevo);
 
