@@ -3,11 +3,13 @@ package lupin.controllers.abstracts;
 import lupin.models.Lupin;
 import lupin.models.Posicion;
 import lupin.models.abstracts.Enemigo;
+import lupin.views.abstracts.Personaje;
 
-public abstract class EnemigoController {
+public class EnemigoController {
 
     private Enemigo enemigo;
     private Lupin lupin;
+    private Personaje enemigoGrafico;
 
     public EnemigoController(Enemigo enemigo, Lupin lupin) {
         this.enemigo = enemigo;
@@ -21,6 +23,7 @@ public abstract class EnemigoController {
         posicion.mover((posicion.getX() / magnitud), (posicion.getY() / magnitud));
         posicion.mover(enemigo.getVelocidad() * posicion.getX(), enemigo.getVelocidad() * posicion.getY());
         this.enemigo.moverse(posicion.getX(), posicion.getY());
+        this.enemigoGrafico.mover();
     }
 
     public void mover(int x, int y) {
@@ -43,6 +46,14 @@ public abstract class EnemigoController {
 
     public void setLupin(Lupin lupin) {
         this.lupin = lupin;
+    }
+
+    public void setEnemigoGrafico(Personaje enemigoGrafico) {
+        this.enemigoGrafico = enemigoGrafico;
+    }
+
+    public Personaje getEnemigoGrafico() {
+        return enemigoGrafico;
     }
     
 }

@@ -3,10 +3,9 @@ package lupin.views;
 
 import javax.swing.JPanel;
 
-import lupin.controllers.GuardianController;
 import lupin.controllers.LlaveController;
 import lupin.controllers.LupinController;
-import lupin.controllers.PerroController;
+import lupin.controllers.abstracts.EnemigoController;
 
 //import java.awt.Rectangle;
 import java.awt.geom.*;
@@ -30,7 +29,7 @@ public class Tablero extends JPanel implements SujetoObservable{
     private GuardianGrafico guardian;
     private ArrayList<LlaveGrafica> llaves;
 
-    public Tablero(PerroController[] perrosControllers,LlaveController[] llavesJuego,GuardianController guardianController,LupinController lupinController) {
+    public Tablero(EnemigoController[] perrosControllers,LlaveController[] llavesJuego,EnemigoController guardianController,LupinController lupinController) {
 
         this.setLayout(null);
         this.setBackground(Color.GRAY);
