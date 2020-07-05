@@ -130,6 +130,7 @@ public class Tablero extends JPanel implements SujetoObservable{
         Rectangle2D paredInferiorCinco = new Rectangle2D.Double(360,300,40,10);
         Rectangle2D paredInferiorSeis = new Rectangle2D.Double(470,300,60,10);
         Rectangle2D paredDerechaUno = new Rectangle2D.Double(540,0,10,50);
+        Rectangle2D paredDerechaDos = new Rectangle2D.Double(540,100,10,400);
         
 
         //areajugador.intersectsLine(0, 300, 540, 300)
@@ -152,6 +153,9 @@ public class Tablero extends JPanel implements SujetoObservable{
             this.jugador.chocar();
         }
         if(this.jugador.getArea().intersects(paredInferiorSeis)){
+            this.jugador.chocar();
+        }
+        if(this.jugador.getArea().intersects(paredDerechaDos)){
             this.jugador.chocar();
         }
 
