@@ -28,6 +28,8 @@ public class Tablero extends JPanel implements SujetoObservable{
     private PerroGrafico[] perros;
     private GuardianGrafico guardian;
     private ArrayList<LlaveGrafica> llaves;
+    private boolean estadoPuerta1 = false,estadoPuerta2 = false,estadoPuerta3 = false;
+    private PuertaGrafica puertaUno,puertaDos,puertaTres;
 
     public Tablero(EnemigoController[] perrosControllers,LlaveController[] llavesJuego,EnemigoController guardianController,LupinController lupinController) {
 
@@ -35,6 +37,9 @@ public class Tablero extends JPanel implements SujetoObservable{
         Color color = new Color(153,134,244);
         this.setBackground(color);
         
+        puertaUno = new PuertaGrafica(235, 297, 60, 1);
+        puertaDos = new PuertaGrafica(405, 297, 60, 1);
+        puertaTres = new PuertaGrafica(540, 55, 1, 40);
         cantidadLlaves = 3;
         observer = new ObservadorTablero();
         jugador = new Jugador(lupinController);
@@ -109,8 +114,20 @@ public class Tablero extends JPanel implements SujetoObservable{
         //Pared lateral grande
         lapiz.drawLine(540, 0, 540, 50);
         lapiz.drawLine(540, 100, 540, 500);
-        
 
+        //Dibujo puertas
+        lapiz.setStroke(new BasicStroke(4));
+        lapiz.setColor(Color.WHITE);
+
+        if(estadoPuerta1 == false){
+            lapiz.draw(puertaUno.getForma());
+        }
+        if(estadoPuerta2 == false){
+            lapiz.draw(puertaDos.getForma());
+        }
+        if(estadoPuerta3 == false){
+            lapiz.draw(puertaTres.getForma());
+        }
     }
 
     @Override
@@ -159,6 +176,16 @@ public class Tablero extends JPanel implements SujetoObservable{
             this.jugador.chocar();
         }
 
+        if(this.jugador.getArea().intersects(puertaUno.getForma()) && estadoPuerta1 == false){
+            this.jugador.chocar();
+        }
+        if(this.jugador.getArea().intersects(puertaDos.getForma()) && estadoPuerta2 == false){
+            this.jugador.chocar();
+        }
+        if(this.jugador.getArea().intersects(puertaTres.getForma()) && estadoPuerta3 == false){
+            this.jugador.chocar();
+        }
+
         if(this.jugador.getPlayerController().getLupin().getPosicion().getX() > this.getBounds().getMaxX()){
             this.jugador.chocar();
             
@@ -183,10 +210,28 @@ public class Tablero extends JPanel implements SujetoObservable{
                 this.remove(l);
                 try{
                     this.llaves.remove(l);
-                    this.generarGuardian();
+                    generarGuardian();
+                    cambiarPuerta();
                     
                 }catch(Exception e){}
             }
+        }
+    }
+
+    public void cambiarPuerta(){
+        switch(this.llaves.size()){
+            case 0:
+                estadoPuerta3 = true;
+                repaint();
+                break;
+            case 1:
+                estadoPuerta2 = true;
+                repaint();
+                break;
+            case 2:
+                estadoPuerta1 = true;
+                repaint();
+                break;
         }
     }
 
