@@ -1,5 +1,10 @@
-package models;
+package lupin.models;
 
-import models.abstracts.*;
+import lupin.models.abstracts.*;
 
-public class Guardian extends Enemigo {}
+public class Guardian extends Enemigo {
+
+    public Guardian(int x,int y, int velocidad){
+        super(x,y, velocidad);
+    }
+}

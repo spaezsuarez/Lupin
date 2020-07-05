@@ -1,13 +1,30 @@
-package controllers;
+package lupin.controllers;
 
-import models.Lupin;
-import models.Perro;
-import controllers.abstracts.EnemigoController;
+import lupin.models.Lupin;
+import lupin.models.abstracts.Enemigo;
+import lupin.views.PerroGrafico;
+import lupin.controllers.abstracts.EnemigoController;
 
 public class PerroController extends EnemigoController {
 
-    public PerroController(Perro perro, Lupin lupin) {
+    private PerroGrafico perroGrafico;
+
+    public PerroController(Enemigo perro, Lupin lupin) {
         super(perro, lupin);
+    }
+
+    public void setPerroGrafico(PerroGrafico perroGrafico) {
+        this.perroGrafico = perroGrafico;
+    }
+
+    public PerroGrafico getPerroGrafico() {
+        return perroGrafico;
+    }
+
+    @Override
+    public void mover() {
+        super.mover();
+        this.perroGrafico.mover();
     }
 
 }

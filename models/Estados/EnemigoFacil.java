@@ -1,7 +1,7 @@
-package models.Estados;
+package lupin.models.Estados;
 
-import models.abstracts.EstadoEnemigo;
-import models.abstracts.Enemigo;
+import lupin.models.abstracts.EstadoEnemigo;
+import lupin.models.abstracts.Enemigo;
 
 public class EnemigoFacil implements EstadoEnemigo {
 
@@ -14,7 +14,7 @@ public class EnemigoFacil implements EstadoEnemigo {
 
     @Override
     public void perseguirJugador(){
-        this.enemigo.setVelocidad(2);
+        this.enemigo.setVelocidad(this.enemigo.getVelocidad() + 2);
     }
     
 }

@@ -1,31 +1,31 @@
-package models;
-
-import models.abstracts.Observador;
-import java.util.ArrayList;
-import models.Estados.*;
-import models.abstracts.EstadoEnemigo;
-
+package lupin.models;
+import lupin.models.abstracts.Observador;
+import lupin.views.PerroGrafico;
+import lupin.models.Estados.*;
+import lupin.models.abstracts.EstadoEnemigo;
 
 public class ObservadorTablero implements Observador {
     private int cantidadLlaves;
-    private ArrayList<Perro> enemigos;
+    private PerroGrafico[] enemigos;
 
-    public ObservadorTablero(ArrayList<Perro>enemigosTablero){
-        this.enemigos = enemigosTablero;
+    public ObservadorTablero(){
+        this.enemigos = new PerroGrafico[3];
         this.cantidadLlaves = 0;
     }
 
-    public void setEnemigos(Perro enemigo){
-        this.enemigos.add(enemigo);
+    public void setEnemigos(PerroGrafico[] enemigos){
+        this.enemigos = enemigos;
     }
 
-    public ArrayList<Perro> getEnemigos() {
+    
+    public PerroGrafico[] getEnemigos() {
         return this.enemigos;
     }
 
     public void setEstadoEnemigos(EstadoEnemigo estado){
-        for(Perro e: this.enemigos){
-            e.setEstado(estado);
+        for(PerroGrafico e: this.enemigos){
+            System.out.println("la velocidad del enemigo es: " + e.getPerroController().getEnemigo().getVelocidad());
+            e.getPerroController().getEnemigo().setEstado(estado);
         }
     }
 
@@ -39,16 +39,16 @@ public class ObservadorTablero implements Observador {
 
     public void notificarEnemigos(){
 
-        //Recordar que el tablero va a estar diciendole al observadorLupin cuando una llave se vuelve nula
+        //Recordar que el tablero va a estar diciendole al observadorLupin cuando una llave no
         //Esto quiere decir que la tomo el jugador y va a anotificar a los enemigos
         switch(this.getCantidadLlaves()){
-            case 1:
+            case 3:
                 this.setEstadoEnemigos(new EnemigoFacil());
                 break;
             case 2:
                 this.setEstadoEnemigos(new EnemigoMedio());
                 break;
-            case 3:
+            case 1:
                 this.setEstadoEnemigos(new EnemigoDificil());
                 break;
             }
