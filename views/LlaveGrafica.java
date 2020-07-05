@@ -1,7 +1,7 @@
 package lupin.views;
 
 import javax.swing.JLabel;
-import java.awt.geom.*;
+import java.awt.geom.Rectangle2D;
 import lupin.controllers.LlaveController;
 
 public class LlaveGrafica extends JLabel {
@@ -13,7 +13,7 @@ public class LlaveGrafica extends JLabel {
 
     public LlaveGrafica(LlaveController llave){
         this.setSize(60,40);
-        this.setText("llaves");
+        this.setText("Llave");
         this.llave = llave;
         this.x = this.llave.getLlave().getPosicion().getX();
         this.y = this.llave.getLlave().getPosicion().getY();

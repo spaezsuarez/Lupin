@@ -1,6 +1,7 @@
 
 package lupin.views;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import lupin.controllers.GuardianController;
@@ -33,10 +34,13 @@ public class Tablero extends JPanel implements SujetoObservable{
     private boolean estadoPuerta1 = false,estadoPuerta2 = false,estadoPuerta3 = false;
     private PuertaGrafica puertaUno,puertaDos,puertaTres;
     private TesoroGrafico tesoro;
+    private Contador contador;
     
 
 
     public Tablero(EnemigoController[] perrosControllers, LlaveController[] llavesJuego, GuardianController guardianController, TesoroController tesoro, LupinController lupinController) {
+
+        this.contador = new Contador();
 
         this.setLayout(null);
         Color color = new Color(153,134,244);
@@ -66,6 +70,7 @@ public class Tablero extends JPanel implements SujetoObservable{
         observer.setEnemigos(this.perros);
         this.addKeyListener(jugador.getPlayerController().getMovimiento());
         
+        this.add(contador);
         this.add(this.jugador);
         this.add(this.perros[0]);
         this.add(this.perros[1]);
@@ -245,6 +250,45 @@ public class Tablero extends JPanel implements SujetoObservable{
                     System.out.println(" ");
                 }
             }
+        }
+
+        //Colision Perros
+        for(PerroGrafico perro : perros) {
+            if(this.jugador.getArea().intersects(perro.getArea())) {
+                this.contador.actualizar();
+                if(this.contador.perdio()) {
+                    JOptionPane.showMessageDialog(null, "Perdiste");
+                    try {
+                        Thread.sleep(1000);
+                    } catch(InterruptedException e) {
+                        System.out.println("Error en la Matrix");
+                    }
+                    System.exit(0);
+                }
+            }
+        }
+        //Colision Guardian
+        if(this.jugador.getArea().intersects(guardian.getArea())) {
+            this.contador.actualizar();
+                if(this.contador.perdio()) {
+                JOptionPane.showMessageDialog(null, "Perdiste");
+                try {
+                    Thread.sleep(1000);
+                } catch(InterruptedException e) {
+                    System.out.println("Error en la Matrix");
+                }
+                System.exit(0);
+            }
+        }
+        //Colision Tesoro
+        if(this.jugador.getArea().intersects(tesoro.getArea())) {
+            JOptionPane.showMessageDialog(null, "Ganaste");
+            try {
+                Thread.sleep(1000);
+            } catch(InterruptedException e) {
+                System.out.println("Error en la Matrix");
+            }
+            System.exit(0);
         }
     }
 

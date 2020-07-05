@@ -1,6 +1,7 @@
 package lupin.views;
 
 import lupin.controllers.GuardianController;
+import java.awt.geom.Rectangle2D;
 import lupin.views.abstracts.Personaje;
 
 public class GuardianGrafico extends Personaje {
@@ -28,7 +29,10 @@ public class GuardianGrafico extends Personaje {
     @Override
     public void mover(int x, int y) {
         this.guardian.mover(x, y);
+    }
 
+    public Rectangle2D getArea(){
+        return new Rectangle2D.Double(this.getGuardianController().getEnemigo().getPosicion().getX(), this.getGuardianController().getEnemigo().getPosicion().getY(),70,30);
     }
     
 }
