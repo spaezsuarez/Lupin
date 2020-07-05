@@ -3,6 +3,7 @@ package lupin.views;
 
 import javax.swing.JPanel;
 
+import lupin.controllers.GuardianController;
 import lupin.controllers.LlaveController;
 import lupin.controllers.LupinController;
 import lupin.controllers.PerroController;
@@ -26,14 +27,14 @@ public class Tablero extends JPanel implements SujetoObservable{
     private ObservadorTablero observer;
     private int cantidadLlaves;
     private PerroGrafico[] perros;
+    private GuardianGrafico guardian;
     private ArrayList<LlaveGrafica> llaves;
 
-    public Tablero(PerroController[] perrosControllers,LlaveController[] llavesJuego,LupinController lupinController) {
+    public Tablero(PerroController[] perrosControllers,LlaveController[] llavesJuego,GuardianController guardianController,LupinController lupinController) {
 
         this.setLayout(null);
         this.setBackground(Color.GRAY);
         
-
         cantidadLlaves = 3;
         observer = new ObservadorTablero();
         jugador = new Jugador(lupinController);
@@ -43,6 +44,8 @@ public class Tablero extends JPanel implements SujetoObservable{
             new PerroGrafico(perrosControllers[1], jugador),
             new PerroGrafico(perrosControllers[2], jugador)
         };
+
+        this.guardian = new GuardianGrafico(guardianController);
 
         llaves = new ArrayList<>();
         llaves.add(new LlaveGrafica(llavesJuego[0]));
@@ -59,6 +62,7 @@ public class Tablero extends JPanel implements SujetoObservable{
         this.add(this.llaves.get(0));
         this.add(this.llaves.get(1));
         this.add(this.llaves.get(2));
+        this.add(this.guardian);
         this.setFocusable(true);
         
     }
