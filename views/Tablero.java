@@ -121,7 +121,7 @@ public class Tablero extends JPanel implements SujetoObservable{
             this.jugador.mover(30, 0);
             
         }
-        if(this.jugador.getPlayerController().getLupin().getPosicion().getY() > this.getBounds().getMaxY()){
+        if(this.jugador.getPlayerController().getLupin().getPosicion().getY() > this.getBounds().getMaxY() - 20){
             this.jugador.mover(0, -10);
             
         }
