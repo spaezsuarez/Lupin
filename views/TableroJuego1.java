@@ -4,8 +4,9 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.JFrame;
 
-public class TableroJuego1 extends javax.swing.JFrame {
+public class TableroJuego1 extends JFrame {
     
     private static final long serialVersionUID = 1L;
     fondopanel fondo = new fondopanel();

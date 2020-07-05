@@ -150,8 +150,6 @@ public class Tablero extends JPanel implements SujetoObservable{
                 try{
                     this.llaves.remove(l);
                 }catch(Exception e){}
-                
-                
             }
         }
     }
