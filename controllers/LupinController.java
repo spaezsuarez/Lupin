@@ -45,23 +45,23 @@ class LupinMovement implements KeyListener {
         this.controller = controller;
     }
 
-    public void setJugador(Jugador jugador){
+    public void setJugador(Jugador jugador) {
         this.jugador = jugador;
     }
 
 
     
 
-    public Jugador getJugador(){
+    public Jugador getJugador() {
         return this.jugador;
     }
 
-    public void setTablero(Tablero tablero){
+    public void setTablero(Tablero tablero) {
         this.tablero = tablero;
         this.jugador = this.tablero.getJugador();
     }
 
-    public Tablero getTablero(){
+    public Tablero getTablero() {
         return this.tablero;
     }
 
