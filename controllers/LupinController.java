@@ -58,7 +58,7 @@ class LupinMovement implements KeyListener {
 
     public void setTablero(Tablero tablero) {
         this.tablero = tablero;
-        this.jugador = this.tablero.getJugador();
+        this.jugador = tablero.getJugador();
     }
 
     public Tablero getTablero() {

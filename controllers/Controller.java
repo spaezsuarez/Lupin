@@ -13,10 +13,10 @@ public class Controller {
     private EnemigosThread hiloEnemigos;
 
     public Controller() {
-        LlaveController[] llavesJuego = new LlaveController[]{
-            new LlaveController(new Posicion(5,400), "asdass"),
-            new LlaveController(new Posicion(200,400), "hola"),
-            new LlaveController(new Posicion(400,400), "hola2")
+        LlaveController[] llavesJuego = new LlaveController[] {
+            new LlaveController(new Posicion(5,400), "Llave"),
+            new LlaveController(new Posicion(200,400), "Llave"),
+            new LlaveController(new Posicion(400,400), "Llave")
         };
 
         hiloLupin = new LupinThread();
