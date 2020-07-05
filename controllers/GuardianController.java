@@ -12,6 +12,7 @@ public class GuardianController extends EnemigoController{
 
     @Override
     public void mover() {
+        
     }
     
 }
