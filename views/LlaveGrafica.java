@@ -1,9 +1,7 @@
 package lupin.views;
 
-import java.awt.Image;
 import javax.swing.JLabel;
 import java.awt.geom.*;
-import javax.swing.ImageIcon;
 import lupin.controllers.LlaveController;
 
 public class LlaveGrafica extends JLabel {

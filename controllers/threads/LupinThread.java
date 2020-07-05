@@ -12,7 +12,7 @@ public class LupinThread extends Thread {
 
     public LupinThread(ObjetoEscenario tesoro) {
         this.lupinController = new LupinController(new Lupin(1,1));
-        this.tesoroController= new TesoroController (tesoro);
+        this.tesoroController= new TesoroController(tesoro);
     }
 
     public void setLupinController(LupinController lupinController) {

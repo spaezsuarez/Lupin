@@ -21,7 +21,7 @@ public class Controller {
             new LlaveController(new Posicion(370,400), "Llave")
         };
 
-        hiloLupin = new LupinThread(new ObjetoEscenario(new Posicion (580,400)));
+        hiloLupin = new LupinThread(new ObjetoEscenario(new Posicion (615,300)));
         hiloEnemigos = new EnemigosThread(hiloLupin.getLupinController().getLupin());
         Tablero tablero = new Tablero(hiloEnemigos.getPerrosControllers(), llavesJuego,hiloEnemigos.getGuardianController(),hiloLupin.getTesoroController() , hiloLupin.getLupinController());
         hiloLupin.getLupinController().getMovimiento().setTablero(tablero);
