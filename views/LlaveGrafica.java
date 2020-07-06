@@ -13,7 +13,7 @@ public class LlaveGrafica extends JLabel {
 
     public LlaveGrafica(LlaveController llave){
         this.setSize(60,40);
-        this.setText("Llave");
+        this.setText("⌘");
         this.llave = llave;
         this.x = this.llave.getLlave().getPosicion().getX();
         this.y = this.llave.getLlave().getPosicion().getY();
