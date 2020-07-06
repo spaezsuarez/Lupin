@@ -10,7 +10,7 @@ public class PerroGrafico extends Personaje {
     private EnemigoController enemigo;
 
     public PerroGrafico(EnemigoController enemigo,Jugador jugador){
-        this.setSize(60, 30);
+        this.setSize(11, 12);
         this.setText("🔺");
         this.enemigo = enemigo;
         this.setLocation((int)this.enemigo.getEnemigo().getPosicion().getX(), (int)this.enemigo.getEnemigo().getPosicion().getY());
@@ -31,7 +31,7 @@ public class PerroGrafico extends Personaje {
     }
 
     public Rectangle2D getArea(){
-        return new Rectangle2D.Double(this.getPerroController().getEnemigo().getPosicion().getX(), this.getPerroController().getEnemigo().getPosicion().getY(),60,30);
+        return new Rectangle2D.Double(this.getPerroController().getEnemigo().getPosicion().getX(), this.getPerroController().getEnemigo().getPosicion().getY(), 11, 12);
     }
     
 }

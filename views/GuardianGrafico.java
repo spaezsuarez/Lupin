@@ -10,7 +10,7 @@ public class GuardianGrafico extends Personaje {
     private GuardianController guardian;
 
     public GuardianGrafico(GuardianController guardian){
-        this.setSize(70,30);
+        this.setSize(11,11);
         this.setText("◍");
         this.guardian = guardian;
         this.setLocation((int)this.guardian.getEnemigo().getPosicion().getX(),(int)this.guardian.getEnemigo().getPosicion().getY());
@@ -32,7 +32,7 @@ public class GuardianGrafico extends Personaje {
     }
 
     public Rectangle2D getArea(){
-        return new Rectangle2D.Double(this.getGuardianController().getEnemigo().getPosicion().getX(), this.getGuardianController().getEnemigo().getPosicion().getY(),70,30);
+        return new Rectangle2D.Double(this.getGuardianController().getEnemigo().getPosicion().getX(), this.getGuardianController().getEnemigo().getPosicion().getY(), 11, 11);
     }
     
 }

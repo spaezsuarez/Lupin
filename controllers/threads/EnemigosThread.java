@@ -14,12 +14,12 @@ public class EnemigosThread extends Thread {
 
     public EnemigosThread(Lupin lupin) {
         perrosControllers = new EnemigoController[] {
-            new EnemigoController(new Perro(100,420, 0), lupin),
-            new EnemigoController(new Perro(300,420, 0), lupin),
-            new EnemigoController(new Perro(480,420, 0), lupin)
+            new EnemigoController(new Perro(100,420, 10), lupin),
+            new EnemigoController(new Perro(300,420, 11), lupin),
+            new EnemigoController(new Perro(480,420, 12), lupin)
         };
 
-        guardianController = new GuardianController(new Guardian(515, 300, 0), lupin);
+        guardianController = new GuardianController(new Guardian(566, 309.94, 0), lupin);
     }
 
     public void setTablero(Tablero tablero) {

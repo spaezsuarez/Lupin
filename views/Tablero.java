@@ -69,7 +69,7 @@ public class Tablero extends JPanel implements SujetoObservable{
 
         observer.setEnemigos(this.perros);
         this.addKeyListener(jugador.getPlayerController().getMovimiento());
-        
+
         this.add(contador);
         this.add(this.jugador);
         this.add(this.perros[0]);
@@ -312,7 +312,7 @@ public class Tablero extends JPanel implements SujetoObservable{
 
     public void generarGuardian(){
         if(this.llaves.isEmpty()){
-            this.guardian.getGuardianController().getEnemigo().setVelocidad(10);
+            this.guardian.getGuardianController().getEnemigo().setVelocidad(1);
             this.add(this.guardian);
         }
     }

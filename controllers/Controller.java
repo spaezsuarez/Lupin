@@ -33,7 +33,7 @@ public class Controller {
         ventana.start();
         hiloLupin.start();
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch(InterruptedException e) {
             System.out.println("Error en la matrix");
         }

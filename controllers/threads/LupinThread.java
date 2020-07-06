@@ -33,14 +33,6 @@ public class LupinThread extends Thread {
     
 
     @Override
-    public void run() {
-        do {
-            try {
-                Thread.sleep(1);
-            } catch(InterruptedException e) {
-                System.out.println("Error en la Matrix");
-            }
-        } while(true);
-    }
+    public void run() {}
     
 }

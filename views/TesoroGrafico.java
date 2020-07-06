@@ -11,7 +11,7 @@ public class TesoroGrafico extends JLabel{
 
 
     public TesoroGrafico(TesoroController tesoro){
-        this.setSize(60,40);
+        this.setSize(11,11);
         this.setText("▀");
         this.tesoro = tesoro;
         this.x = this.tesoro.getTesoro().getPosicion().getX();
@@ -25,7 +25,7 @@ public class TesoroGrafico extends JLabel{
     }
 
     public Rectangle2D getArea(){
-        return new Rectangle2D.Double(x,y,60,40);
+        return new Rectangle2D.Double(x, y, 11, 11);
     }
     
 }

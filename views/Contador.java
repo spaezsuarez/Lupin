@@ -8,8 +8,8 @@ public class Contador extends JLabel {
     private int contador;
     
     public Contador() {
-        this.contador = 20;
-        this.setSize(100, 100);
+        this.contador = 10;
+        this.setSize(70, 10);
         this.setText("Vidas: " + this.contador);
         this.setLocation(0, 0);
     }

@@ -12,7 +12,7 @@ public class LlaveGrafica extends JLabel {
 
 
     public LlaveGrafica(LlaveController llave){
-        this.setSize(60,40);
+        this.setSize(11,11);
         this.setText("⌘");
         this.llave = llave;
         this.x = this.llave.getLlave().getPosicion().getX();
@@ -26,7 +26,7 @@ public class LlaveGrafica extends JLabel {
     }
 
     public Rectangle2D getArea(){
-        return new Rectangle2D.Double(x,y,60,40);
+        return new Rectangle2D.Double(x, y, 11, 11);
     }
 
     

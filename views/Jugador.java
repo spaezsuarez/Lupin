@@ -16,7 +16,7 @@ public class Jugador extends Personaje{
     
 
     public Jugador(LupinController lupin){
-        this.setSize(40,30);
+        this.setSize(11,11);
         this.setText("▣");
         this.controller = lupin;
     }
@@ -40,9 +40,7 @@ public class Jugador extends Personaje{
 
 
     public Rectangle2D getArea(){
-        return new Rectangle2D.Double(this.getX(),this.getY(),40,30);
+        return new Rectangle2D.Double(this.getX(),this.getY(), 11, 11);
     }
-
-    
     
 }
