@@ -11,7 +11,7 @@ public class Contador extends JLabel {
         this.contador = 10;
         this.setSize(70, 10);
         this.setText("Vidas: " + this.contador);
-        this.setLocation(0, 0);
+        this.setLocation(675, 0);
     }
 
     public void actualizar() {
