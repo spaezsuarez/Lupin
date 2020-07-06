@@ -14,7 +14,7 @@ public class EnemigoMedio implements EstadoEnemigo {
 
     @Override
     public void perseguirJugador(){
-        this.enemigo.setVelocidad(this.enemigo.getVelocidad() + 3);
+        this.enemigo.setVelocidad(this.enemigo.getVelocidad() + 1);
     }
     
 }

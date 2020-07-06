@@ -11,7 +11,7 @@ public class PerroGrafico extends Personaje {
 
     public PerroGrafico(EnemigoController enemigo,Jugador jugador){
         this.setSize(60, 30);
-        this.setText("Perro");
+        this.setText("🔺");
         this.enemigo = enemigo;
         this.setLocation((int)this.enemigo.getEnemigo().getPosicion().getX(), (int)this.enemigo.getEnemigo().getPosicion().getY());
     }

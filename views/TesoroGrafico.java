@@ -12,7 +12,7 @@ public class TesoroGrafico extends JLabel{
 
     public TesoroGrafico(TesoroController tesoro){
         this.setSize(60,40);
-        this.setText("tesoro");
+        this.setText("▀");
         this.tesoro = tesoro;
         this.x = this.tesoro.getTesoro().getPosicion().getX();
         this.y = this.tesoro.getTesoro().getPosicion().getY();

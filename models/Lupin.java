@@ -8,7 +8,7 @@ public class Lupin {
 
     public Lupin(int x, int y){
         this.posicion = new Posicion(x,y);
-        this.velocidad = 5;
+        this.velocidad = 10;
     }
 
     public void setVelocidad(int velocidad){

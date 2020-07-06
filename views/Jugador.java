@@ -17,7 +17,7 @@ public class Jugador extends Personaje{
 
     public Jugador(LupinController lupin){
         this.setSize(40,30);
-        this.setText("Lupin");
+        this.setText("▣");
         this.controller = lupin;
     }
 

@@ -11,7 +11,7 @@ public class GuardianGrafico extends Personaje {
 
     public GuardianGrafico(GuardianController guardian){
         this.setSize(70,30);
-        this.setText("Guardian");
+        this.setText("◍");
         this.guardian = guardian;
         this.setLocation((int)this.guardian.getEnemigo().getPosicion().getX(),(int)this.guardian.getEnemigo().getPosicion().getY());
     }
