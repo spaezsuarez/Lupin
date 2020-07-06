@@ -280,6 +280,7 @@ public class Tablero extends JPanel implements SujetoObservable{
                 System.exit(0);
             }
         }
+
         //Colision Tesoro
         if(this.jugador.getArea().intersects(tesoro.getArea())) {
             JOptionPane.showMessageDialog(null, "Ganaste");
