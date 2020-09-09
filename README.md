@@ -1,8 +1,8 @@
-#Juego Lupin
+# Juego Lupin
 
 Pequeño juego el cual consiste en tomar una serie de llaves para desbloquear una sala y tomar un tesoro
 
-#Autores
+# Autores
 
 Jesús Manuel Leiva Bermúdez - 20191020132
 
