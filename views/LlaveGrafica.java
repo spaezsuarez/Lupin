@@ -1,8 +1,8 @@
-package lupin.views;
+package views;
 
 import javax.swing.JLabel;
 import java.awt.geom.Rectangle2D;
-import lupin.controllers.LlaveController;
+import controllers.LlaveController;
 
 public class LlaveGrafica extends JLabel {
 

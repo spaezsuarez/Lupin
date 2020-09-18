@@ -1,4 +1,4 @@
-package lupin.models.abstracts;
+package models.abstracts;
 
 public interface FabricaEnemigo {
 

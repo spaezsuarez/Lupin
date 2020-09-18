@@ -1,11 +1,11 @@
-package lupin.controllers.threads;
+package controllers.threads;
 
-import lupin.controllers.GuardianController;
-import lupin.controllers.abstracts.EnemigoController;
-import lupin.models.Guardian;
-import lupin.models.Lupin;
-import lupin.models.Perro;
-import lupin.views.Tablero;
+import controllers.GuardianController;
+import controllers.abstracts.EnemigoController;
+import models.Guardian;
+import models.Lupin;
+import models.Perro;
+import views.Tablero;
 
 public class EnemigosThread extends Thread {
 

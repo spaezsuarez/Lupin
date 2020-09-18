@@ -1,9 +1,9 @@
-package lupin.views;
+package views;
 //import java.awt.Image;
 //import javax.swing.ImageIcon;
 
-import lupin.controllers.LupinController;
-import lupin.views.abstracts.*;
+import controllers.LupinController;
+import views.abstracts.*;
 import java.awt.geom.*;
 
 

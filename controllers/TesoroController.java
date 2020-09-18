@@ -1,6 +1,6 @@
-package lupin.controllers;
+package controllers;
 
-import lupin.models.ObjetoEscenario;
+import models.ObjetoEscenario;
 
 public class TesoroController {
     private ObjetoEscenario tesoro;

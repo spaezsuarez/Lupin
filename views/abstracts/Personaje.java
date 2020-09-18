@@ -1,4 +1,4 @@
-package lupin.views.abstracts;
+package views.abstracts;
 
 import javax.swing.JLabel;
 

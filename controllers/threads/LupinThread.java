@@ -1,9 +1,9 @@
-package lupin.controllers.threads;
+package controllers.threads;
 
-import lupin.controllers.LupinController;
-import lupin.controllers.TesoroController;
-import lupin.models.Lupin;
-import lupin.models.ObjetoEscenario;
+import controllers.LupinController;
+import controllers.TesoroController;
+import models.Lupin;
+import models.ObjetoEscenario;
 
 public class LupinThread extends Thread {
 

@@ -1,8 +1,8 @@
-package lupin.views;
+package views;
 
-import lupin.controllers.GuardianController;
+import controllers.GuardianController;
 import java.awt.geom.Rectangle2D;
-import lupin.views.abstracts.Personaje;
+import views.abstracts.Personaje;
 
 public class GuardianGrafico extends Personaje {
 

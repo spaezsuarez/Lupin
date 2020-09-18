@@ -1,8 +1,8 @@
-package lupin.views;
+package views;
 
 import java.awt.geom.Rectangle2D;
 import javax.swing.JLabel;
-import lupin.controllers.TesoroController;
+import controllers.TesoroController;
 
 public class TesoroGrafico extends JLabel{
     private static final long serialVersionUID = 1L;

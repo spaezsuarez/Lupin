@@ -1,13 +1,13 @@
 
-package lupin.views;
+package views;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import lupin.controllers.GuardianController;
-import lupin.controllers.LlaveController;
-import lupin.controllers.LupinController;
-import lupin.controllers.abstracts.EnemigoController;
+import controllers.GuardianController;
+import controllers.LlaveController;
+import controllers.LupinController;
+import controllers.abstracts.EnemigoController;
 
 //import java.awt.Rectangle;
 import java.awt.geom.*;
@@ -15,11 +15,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.BasicStroke;
-import lupin.models.abstracts.SujetoObservable;
-import lupin.models.ObservadorTablero;
+import models.abstracts.SujetoObservable;
+import models.ObservadorTablero;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
-import lupin.controllers.TesoroController;
+import controllers.TesoroController;
 
 
 public class Tablero extends JPanel implements SujetoObservable{

@@ -1,6 +1,6 @@
-package lupin.models.abstracts;
+package models.abstracts;
 
-import lupin.models.Posicion;
+import models.Posicion;
 
 public class Enemigo {
 

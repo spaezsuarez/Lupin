@@ -1,4 +1,4 @@
-package lupin.models;
+package models;
 
 public class ObjetoEscenario {
 

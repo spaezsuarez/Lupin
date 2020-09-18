@@ -1,7 +1,7 @@
-package lupin.views;
+package views;
 
-import lupin.controllers.abstracts.EnemigoController;
-import lupin.views.abstracts.Personaje;
+import controllers.abstracts.EnemigoController;
+import views.abstracts.Personaje;
 import java.awt.geom.Rectangle2D;
 
 public class PerroGrafico extends Personaje {

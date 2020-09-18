@@ -1,9 +1,9 @@
-package lupin.controllers.abstracts;
+package controllers.abstracts;
 
-import lupin.models.Lupin;
-import lupin.models.Posicion;
-import lupin.models.abstracts.Enemigo;
-import lupin.views.abstracts.Personaje;
+import models.Lupin;
+import models.Posicion;
+import models.abstracts.Enemigo;
+import views.abstracts.Personaje;
 
 public class EnemigoController {
 

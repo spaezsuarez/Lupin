@@ -1,8 +1,8 @@
-package lupin.controllers;
+package controllers;
 
-import lupin.models.Puerta;
-import lupin.models.Llave;
-import lupin.models.Posicion;
+import models.Puerta;
+import models.Llave;
+import models.Posicion;
 
 public class PuertaController {
 

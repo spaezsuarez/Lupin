@@ -1,11 +1,11 @@
-package lupin.controllers;
+package controllers;
 
-import lupin.controllers.threads.EnemigosThread;
-import lupin.controllers.threads.LupinThread;
-import lupin.models.ObjetoEscenario;
-import lupin.models.Posicion;
-import lupin.views.Tablero;
-import lupin.views.View;
+import controllers.threads.EnemigosThread;
+import controllers.threads.LupinThread;
+import models.ObjetoEscenario;
+import models.Posicion;
+import views.Tablero;
+import views.View;
 
 public class Controller {
 

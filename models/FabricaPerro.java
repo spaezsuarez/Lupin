@@ -1,6 +1,6 @@
-package lupin.models;
+package models;
 
-import lupin.models.abstracts.FabricaEnemigo;
+import models.abstracts.FabricaEnemigo;
 
 public class FabricaPerro implements FabricaEnemigo {
 

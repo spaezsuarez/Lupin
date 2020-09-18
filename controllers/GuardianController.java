@@ -1,9 +1,9 @@
-package lupin.controllers;
+package controllers;
 
-import lupin.controllers.abstracts.EnemigoController;
-import lupin.models.Guardian;
-import lupin.models.Lupin;
-import lupin.models.ObjetoEscenario;
+import controllers.abstracts.EnemigoController;
+import models.Guardian;
+import models.Lupin;
+import models.ObjetoEscenario;
 
 public class GuardianController extends EnemigoController{
 

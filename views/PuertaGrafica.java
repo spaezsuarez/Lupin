@@ -1,4 +1,4 @@
-package lupin.views;
+package views;
 
 import java.awt.geom.*;
 
