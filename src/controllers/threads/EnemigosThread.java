@@ -14,9 +14,9 @@ public class EnemigosThread extends Thread {
 
     public EnemigosThread(Lupin lupin) {
         perrosControllers = new EnemigoController[] {
-            new EnemigoController(new Perro(100,420, 10), lupin),
-            new EnemigoController(new Perro(300,420, 11), lupin),
-            new EnemigoController(new Perro(480,420, 12), lupin)
+            new EnemigoController(new Perro(100,420, 7), lupin),
+            new EnemigoController(new Perro(300,420, 7), lupin),
+            new EnemigoController(new Perro(480,420, 7), lupin)
         };
 
         guardianController = new GuardianController(new Guardian(566, 309.94, 0), lupin);

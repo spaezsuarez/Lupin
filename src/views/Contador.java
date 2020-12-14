@@ -1,6 +1,7 @@
 package views;
 
 import javax.swing.JLabel;
+import java.awt.Font;
 
 public class Contador extends JLabel {
 
@@ -9,9 +10,10 @@ public class Contador extends JLabel {
     
     public Contador() {
         this.contador = 10;
-        this.setSize(70, 10);
+        this.setSize(100, 20);
+        this.setFont(new Font("Arial",Font.BOLD,15));
         this.setText("Vidas: " + this.contador);
-        this.setLocation(675, 0);
+        this.setLocation(675, 10);
     }
 
     public void actualizar() {
